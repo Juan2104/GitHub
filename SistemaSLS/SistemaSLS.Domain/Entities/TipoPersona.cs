@@ -9,11 +9,15 @@ namespace SistemaSLS.Domain.Entities
     [Table("TipoPersona")]
     public partial class TipoPersona
     {
-        [Key]
-        [StringLength(6)]
-        public int id { get; set; }
 
-        [Required]
+        [Key]
+
+
+        public int IdTipoPersona { get; set; }
+
+
+        
+        
         [StringLength(50)]
         public string descripcion { get; set; }
     }

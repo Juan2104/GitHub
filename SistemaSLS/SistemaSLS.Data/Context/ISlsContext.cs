@@ -11,7 +11,7 @@ namespace SistemaSLS.Data.Context
 
         DbSet<TipoPersona> TipoPersona { get; set; }
 
-        Database Database { get; }
+       
 
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
 

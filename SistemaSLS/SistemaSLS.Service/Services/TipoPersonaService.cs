@@ -1,16 +1,12 @@
-﻿
-
+﻿    using SistemaSLS.Data.Repositories.Base;
 using SistemaSLS.Data.Context;
-using SistemaSLS.Domain.Entities;
 using SistemaSLS.Data.Repositories;
-using SistemaSLS.Data;
+using SistemaSLS.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
-using SistemaSLS.Data.Repositories.Base;
 
 namespace SistemaSLS.Service.Services
 {
@@ -30,6 +26,14 @@ namespace SistemaSLS.Service.Services
             _TipoPersonaRepository = TipoPersonaRepository;
         }
 
+
+        public async Task<List<TipoPersona>> GetAll()
+        {
+            return (await _TipoPersonaRepository.GetAll()).ToList();
+        }
+
+
+
         public int Save(TipoPersona emp)
         {
 
@@ -40,7 +44,7 @@ namespace SistemaSLS.Service.Services
 
         public int Edit(TipoPersona emp)
         {
-            var empToEdit = _TipoPersonaRepository.GetById(emp.id);
+            var empToEdit = _TipoPersonaRepository.GetById(emp.IdTipoPersona);
             empToEdit.descripcion = emp.descripcion;
 
             //empToEdit.= mesa.Descripcion;
@@ -69,14 +73,9 @@ namespace SistemaSLS.Service.Services
 
                 throw ex;
             }
+        }
 
 
-        }
-        public IEnumerable<TipoPersona> GetAll() //nom
-        {
-            var lp = _TipoPersonaRepository.GetAll().ToList();
-            return lp;
-        }
 
         public TipoPersona GetById(int id)
         {

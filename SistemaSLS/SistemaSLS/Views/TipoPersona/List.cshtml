@@ -1,19 +1,19 @@
 ﻿<div ng-class="{'loading':  isLoading}"></div>
 
-<div class="TipoPersonaCard" ng-init="InitTipoPersona()">
+<div class="TipoPersonaCard" ng-init="initTipoPersona()">
     <div class="titleCard">
-        <h3 class="h3TitleCard">Tipo Persona</h3>
+        <h3 class="h3TitleCard">Tipo Personas</h3>
     </div>
     <div class="buttonGroup">
         <div class="buttonOne">
-            <button class="btn btn-success" ng-click="CleanTipoPersona();" data-target="#ModalCreateEditTipoPersona" data-toggle="modal">
-                Nuevo Tipo
+            <button class="btn btn-success" ng-click="CleanTipoPersona();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
+                Nueva Persona
             </button>
         </div>
     </div>
 
     <div class="tableSection">
-        <table ng-table="TipoPersonaTable" id="TipoPersonaTable" class="table table-condensed table-bordered tableTipoPersona">
+        <table ng-table="TipoPersonaTable" id="TipoPersonaTable" class="table table-condensed table-bordered TipoPersonaEmpresas">
             <tbody>
                 <tr ng-repeat="row in $data">
                     <td data-title="'Acciones'" style="width:14%;">
@@ -28,32 +28,41 @@
                             Eliminar
                         </button>
                     </td>
-                    <td data-title="'Id Tipo Persona'">{{row.id}}</td>
-                    <td data-title="'Descripcion'" filter="{Descripcion: 'text'}">{{row.Descripcion}}</td>                    
+                    <td data-title="'Persona id'">{{row.IdTipoPersona}}</td>
+                    <td data-title="'Descripción'" filter="{Descripcion: 'text'}">{{row.descripcion}}</td>                   
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
 
-<div class="modal fade" id="ModalCreateEditTipoPersona" tabindex="-1" role="dialog">
+<div class="modal fade" id="ModalCreateEditEmpresa" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Nuevo Tipo</h4>
+                <h4 class="modal-title">Nuevo Tipo Persona</h4>
             </div>
             <div class="modal-body">
                 <form name="TipoPersonaForm">
                     <div class="inputLine">
                         <label>Id Tipo Persona</label>
-                        <input class="form-control" ng-disabled="TipoPersona.id != undefined && !isSave" ng-model="TipoPersona.id" required />
+                        <input class="form-control" ng-disabled="TipoPersona.IdTipoPersona != undefined && !isSave" ng-model="TipoPersona.IdTipoPersona" required />
                     </div>
                     <div class="inputLine">
                         <label>Descripcion</label>
                         <input class="form-control" ng-model="TipoPersona.descripcion" required />
-                    </div>
-
+                    </div>                
+                    @*<div class="inputLine" style="margin-bottom:15px;">
+                            <div class="halfInput">
+                                <label>Solo Lectura</label>
+                                <input type="checkbox" ng-change="rol.Edit = false" ng-model="rol.ReadOnly" required />
+                            </div>
+                            <div class="halfInput">
+                                <label>Puede editar</label>
+                                <input type="checkbox" ng-change="rol.ReadOnly = false"  ng-model="rol.Edit" required />
+                            </div>
+                        </div>*@
                 </form>
             </div>
             <div class="modal-footer">
@@ -73,37 +82,37 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-    <div class="modal fade" id="ModalMessage" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Mensaje</h4>
-                </div>
-                <div class="modal-body">
-                    <p ng-class="{'success': isSuccess, 'error': !isSuccess}">{{message}}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+<div class="modal fade" id="ModalMessage" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-class="{'success': isSuccess, 'error': !isSuccess}">{{message}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-    <div class="modal fade" id="ModalDeleteConfirm" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Aviso</h4>
-                </div>
-                <div class="modal-body">
-                    <p> ¿Desea eliminar la empresa: <b>{{empresas.RazonSocial}}</b>?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn buttonNew" ng-click="deleteEmpresas()" data-dismiss="modal">Eliminar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+<div class="modal fade" id="ModalDeleteConfirm" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Aviso</h4>
+            </div>
+            <div class="modal-body">
+                <p> ¿Desea eliminar la empresa: <b>{{TipoPersona.IdTipoPersona}}</b>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn buttonNew" ng-click="deleteTipoPersona()" data-dismiss="modal">Eliminar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -30,25 +30,18 @@ namespace SistemaSLS.Controllers
 
 
 
-        // GET: TipoPersona
+        //  : TipoPersona
         public ActionResult Index()
         {
             return View();
         }
 
-        public JsonResult Get()
+
+        public async Task<JsonResult> Get()
         {
-            try
-            {
-                var results = Mapper.Map<List<TipoPersonaDTO>>(TipoPersonaService.GetAll());
-                return Json(results, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return Json(Mapper.Map<List<TipoPersonaDTO>>(await TipoPersonaService.GetAll()), JsonRequestBehavior.AllowGet);
         }
-    
+
 
         public JsonResult Post(TipoPersonaDTO TipoPersonaDTO)
         {
@@ -70,9 +63,10 @@ namespace SistemaSLS.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Delete(string TipoPersonaID)
+        public JsonResult Delete(string IdTipoPersona)
         {
-            return Json(TipoPersonaService.Delete(TipoPersonaID), JsonRequestBehavior.AllowGet);
+            return Json(TipoPersonaService.Delete(IdTipoPersona), JsonRequestBehavior.AllowGet);
         }
+
     }
 }

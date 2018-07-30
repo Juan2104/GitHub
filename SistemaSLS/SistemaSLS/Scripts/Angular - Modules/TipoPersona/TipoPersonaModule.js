@@ -12,7 +12,6 @@
     '$locationProvider',
     "$httpProvider",
     function ($routeProvider, $locationProvider, $httpProvider) {
-
         $routeProvider.when('/Index', {
             templateUrl: 'TipoPersonaList',
             controller: 'TipoPersonaCtrl',

@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace SistemaSLS.Data.Repositories.Base
 {
     public abstract class BaseRepository<C, T> : IBaseRepository<T>
-          where T : class
-          where C : ISlsContext
+       where T : class
+        where C : ISlsContext
     {
         private C _context;
 

@@ -58,7 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DTOs\TipoPersonaDTO.cs" />
     <Compile Include="Entities\TipoPersona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

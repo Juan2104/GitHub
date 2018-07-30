@@ -23,12 +23,13 @@
                         data: { TipoPersonaDTO: TipoPersonaDTO }
                     });
                 },
-                deleteTipoPersona: function (TipoPersonaDTO) {
+                Delete: function (TipoPersonaDTO) {
                     return $http({
                         method: 'POST',
                         url: '/TipoPersona/Delete',
-                        data: { id: TipoPersonaDTO }
+                        data: { IdTipoPersona: TipoPersonaDTO }
                     });
                 },
             };
         }]);
+

@@ -163,7 +163,7 @@
     <Content Include="Scripts\Angular\angular-animate.min.js" />
     <Content Include="Scripts\Angular\angular-aria.min.js" />
     <Content Include="Scripts\Angular\angular-filter.js" />
-    <Content Include="Scripts\Angular\angular-material.min.js" />
+    <Content Include="Scripts\Angular\angular-locale_es-ar.js" />
     <Content Include="Scripts\Angular\angular-messages.js" />
     <Content Include="Scripts\Angular\angular-resource.min.js" />
     <Content Include="Scripts\Angular\angular-route.js" />
@@ -171,17 +171,18 @@
     <Content Include="Scripts\Angular\angular-strap.min.js" />
     <Content Include="Scripts\Angular\angular-strap.tpl.min.js" />
     <Content Include="Scripts\Angular\angular.min.js" />
+    <Content Include="Scripts\Angular\ng-table.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <Content Include="Scripts\Angular\angular-animate.min.js.map" />
     <Content Include="Scripts\Angular\angular-messages.min.js.map" />
     <Content Include="Scripts\Angular\angular-route.js.map" />
     <Content Include="Scripts\Angular\angular-sanitize.min.js.map" />
     <Content Include="Scripts\Angular\angular.min.js.map" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

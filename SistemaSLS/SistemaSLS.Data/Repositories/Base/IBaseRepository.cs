@@ -7,7 +7,6 @@ namespace SistemaSLS.Data.Repositories.Base
 {
     public interface IBaseRepository<T> where T : class
     {
-
         void Add(T entity);
         void Add(List<T> entity);
         void Update(T entity);
