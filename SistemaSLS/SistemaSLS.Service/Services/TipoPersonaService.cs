@@ -56,23 +56,11 @@ namespace SistemaSLS.Service.Services
             return 1;
         }
 
-        public int Delete(string empID)
+        public void Delete(int IdTipoPersona)
         {
-            try
-            {
-                var empToDelete = _TipoPersonaRepository.GetById(empID);
-                //rolToDelete.EditDate = DateTime.Now;
-                //rolToDelete.Activo = false;
-                //rolToDelete.EditWho = HttpContext.Current.User.Identity.Name;
-                _TipoPersonaRepository.Delete(empToDelete);
-                SlsContext.SaveChanges();
-                return 1;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            var TipoPersonaDB = _TipoPersonaRepository.GetById(IdTipoPersona);
+            _TipoPersonaRepository.Delete(TipoPersonaDB);
+            SlsContext.SaveChanges();
         }
 
 

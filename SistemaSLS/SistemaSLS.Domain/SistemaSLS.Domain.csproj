@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\TipoMonedaDTO.cs" />
     <Compile Include="DTOs\TipoPersonaDTO.cs" />
+    <Compile Include="Entities\TipoMoneda.cs" />
     <Compile Include="Entities\TipoPersona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

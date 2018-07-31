@@ -10,8 +10,9 @@ namespace SistemaSLS.Data.Context
     {
 
         DbSet<TipoPersona> TipoPersona { get; set; }
+        DbSet<TipoMoneda> TipoMoneda { get; set; }
 
-       
+
 
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
 

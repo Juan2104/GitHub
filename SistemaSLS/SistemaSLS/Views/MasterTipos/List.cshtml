@@ -1,0 +1,48 @@
+﻿<style>
+    .btn-burger-Menu {
+        background-color: #5663b4 !important;
+    }
+
+    html, body {
+        height: 160% !important;
+    }
+</style>
+
+
+<div ng-class="{'loading':  isLoading}"></div>
+<div style="height: 100%" ng-init="initMaster()">
+    <div class="fullHeigth">
+        <div class="firstColumn">
+            <div class="cardTableMaster">
+                <div>
+                    <h3 style="text-align:center;">Tipo Moneda</h3>
+                    <div class="actionRigth">
+                        <button class="btn btn-success" ng-click="TipoMoneda = {}" data-target="#ModalCreateTipoModal" data-toggle="modal">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <table ng-table="TipoMonedaTable" class="table table-condensed table-bordered">
+                        <tbody>
+                            <tr ng-repeat="row in $data | orderBy: 'Nombre'">
+                                <td data-title="'Acción'" class="actionWidthApplication">
+                                    <button class="btn btn-primary" data-target="#ModalCreateTipoMoneda" data-toggle="modal"
+                                            ng-click="loadTipoMoneda(row)">
+                                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                                    </button>
+                                    <button ng-click="loadTipoMoneda(row)" class="btn btn-success"
+                                            data-target="#ModalDeleteTipoMoneda" data-toggle="modal">
+                                        <i class="fas fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                                <td data-title="'Nombre'">{{row.Nombre}}</td>
+                                <td data-title="'Cambio'">{{row.Cambio}}</td>
+                                <td data-title="'Fecha'">{{row.Fecha}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -138,6 +138,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MasterTiposController.cs" />
     <Compile Include="Controllers\TipoPersonaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3444,6 +3445,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Angular - Modules\MasterTipos\MasterTiposCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\MasterTipos\MasterTiposModule.js" />
+    <Content Include="Scripts\Angular - Modules\Services\MasterTiposService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoPersonaService.js" />
     <Content Include="Scripts\Angular - Modules\TipoPersona\TipoPersonaCtrl.js" />
     <Content Include="Scripts\Angular - Modules\TipoPersona\TipoPersonaModule.js" />
@@ -3692,6 +3696,9 @@
     <Content Include="Views\TipoPersona\Bundle.cshtml" />
     <Content Include="Views\TipoPersona\Index.cshtml" />
     <Content Include="Views\TipoPersona\List.cshtml" />
+    <Content Include="Views\MasterTipos\List.cshtml" />
+    <Content Include="Views\MasterTipos\Bundle.cshtml" />
+    <Content Include="Views\MasterTipos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

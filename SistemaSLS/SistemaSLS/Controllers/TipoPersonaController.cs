@@ -63,9 +63,10 @@ namespace SistemaSLS.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Delete(string IdTipoPersona)
+        public JsonResult Delete(int IdTipoPersona)
         {
-            return Json(TipoPersonaService.Delete(IdTipoPersona), JsonRequestBehavior.AllowGet);
+            TipoPersonaService.Delete(IdTipoPersona);
+            return Json("", JsonRequestBehavior.AllowGet);
         }
 
     }
