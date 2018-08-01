@@ -5,95 +5,69 @@
            '$routeParams',
            '$location',
            'MasterTiposService',
-           '$window',
-           '$http',
-           '$timeout',
            'NgTableParams',
-           'Upload',
-           function ($scope, $filter, $routeParams, $location, MasterTiposService, $window, $http, $timeout, NgTableParams, Upload) {
+           function ($scope, $filter, $routeParams, $location, MasterTiposService, NgTableParams) {
                $scope.TipoMoneda = [];
-               $scope.TipoPersona = [];
-           
-               $scope.initMasterTipos = function () {
+          
+               $scope.InitMasterTipos = function () {
                    $scope.isLoading = true;
                    MasterTiposService.getInitMasterTipos().then(function (response) {
                        $scope.isLoading = false;
-                       $scope.userTable = new NgTableParams({ count: 5 }, { counts: [], dataset: response.data.TipoMoneda });
-                       $scope.printerTable = new NgTableParams({ count: 5 }, { counts: [], dataset: response.data.printers });
-                       $scope.TipoMoneda = response.data.TipoMoneda;
-                       $scope.TipoPersona = response.data.TipoPersona;                       
-                       angular.forEach(response.data.cases, function (key) {
-                           var LtlWeight = "" + key.LtlWeight;
-                           var LtlWidth = "" + key.LtlWidth;
-                           var LtlHeight = "" + key.LtlHeight;
-                           var LtlLength = "" + key.LtlLength;
-                           key.LtlWeight = LtlWeight.replace(".", ",");
-                           key.LtlWidth = LtlWidth.replace(".", ",");
-                           key.LtlHeight = LtlHeight.replace(".", ",");
-                           key.LtlLength = LtlLength.replace(".", ",");
-                       });                      
-                   })
+                       $scope.TipoMonedaTable = new NgTableParams({ count: 5 }, { counts: [], dataset: response.data.TipoMoneda });
+                   }).catch(function (result) {                       
+                   });
+               }
 
-                       $scope.loadTipoMoneda = function (row) {
-                           $scope.TipoMoneda = angular.copy(row);
-                       }
+               $scope.CleanTipoMoneda = function () {
+                   $scope.isSave = true;
+                   $scope.TipoMoneda = {};
+               }
 
-                       $scope.loadTipoPersona = function (row) {
-                           $scope.TipoPersona = angular.copy(row);
-                       }
+               $scope.InitMasterTipos = function () {
+                   MasterTiposService.InitMasterTipos().then(function (response) {
+                       $scope.TipoMonedaTable = new NgTableParams({ count: 20 }, { counts: [], dataset: response.data });
+                   }).catch(function (result) {
+                   });
+               }
 
-             
+               $scope.loadTipoMoneda = function (row) {
+                   $scope.TipoMoneda = angular.copy(row);
+               }
 
-                       $scope.saveTipoMoneda = function () {
-                           if ($scope.TipoMoneda.IdTipoMoneda != undefined) {
-                               MasterTiposService.editTipoMoneda($scope.TipoMoneda).then(function (response) {
-                                   $scope.initMasterTipos();
-                               }).catch(function (result) {
-                               });
-                           } else {
-                               MasterTiposService.saveTipoMoneda($scope.TipoMoneda).then(function (response) {
-                                   $scope.initMasterTipos();
-                               }).catch(function (result) {
-                               });
-                           }
-                       }
+               $scope.saveTipoMoneda = function () {
+                   MasterTiposService.saveTipoMoneda($scope.TipoMoneda).then(function (response) {
+                       $scope.isSuccess = true;
+                       $scope.message = "Se ha agregado el tipo de persona correctamente";
+                       $("#ModalMessage").modal('show');
+                       $scope.initMasterTipos();
+                   }).catch(function (result) {
+                       $scope.isSuccess = false;
+                       $scope.message = result.data;
+                   });
+               }
 
-                       $scope.saveTipoPersona = function () {
-                           if ($scope.TipoPersona.IdTipoPersona != undefined) {
-                               MasterTiposService.editTipoPersona($scope.TipoPersona).then(function (response) {
-                                   $scope.initMasterTipos();
-                               }).catch(function (result) {
-                               });
-                           } else {
-                               MasterTiposService.saveTipoPersona($scope.TipoPersona).then(function (response) {
-                                   $scope.initMasterTipos();
-                               }).catch(function (result) {
-                               });
-                           }
-                       }
+               $scope.editTipoMoneda = function () {
+                   MasterTiposService.editTipoMoneda($scope.TipoMoneda).then(function (response) {
+                       $scope.message = "Se ha editado el tipo de persona correctamente";
+                       $scope.isSuccess = true;
+                       $("#ModalMessage").modal('show');
+                       $scope.initMasterTipos();
+                   }).catch(function (result) {
+                       $scope.isSuccess = false;
+                       $scope.message = result.data;
+                   });
+               }
 
-              
+               $scope.DeleteTipoMoneda = function () {
+                   MasterTiposService.DeleteTipoMoneda($scope.TipoMoneda.IdTipoMoneda).then(function (response) {
+                       $scope.message = "Se ha eliminado la empresad correctamente";
+                       $scope.isSuccess = true;
+                       $("#ModalMessage").modal('show');
+                       $scope.initMasterTipos();
+                   }).catch(function (result) {
+                       $scope.isSuccess = false;
+                       $scope.message = result.data;
+                   });
+               }
 
-                       $scope.getTipoMoneda = function (IdTipoMoneda) {
-                           return $filter('filter')($scope.TipoMoneda, { 'IdTipoMoneda': IdTipoMoneda }, true)[0].Name;
-                       }
-
-                       $scope.getTipoPersona = function (IdTipoPersona) {
-                           return $filter('filter')($scope.TipoPersona, { 'TipoPersona': IdTipoPersona }, true)[0].Name;
-                       }
-
-
-                       $scope.deleteUser = function () {
-                           MasterTiposService.deleteUser($scope.user.UserId).then(function (response) {
-                               $scope.initMasterTipos();
-                           }).catch(function (result) {
-                           });
-                       }
-
-                       $scope.deleteCustomer = function () {
-                           MasterTiposService.deleteCustomer($scope.customer.CustomerId).then(function (response) {
-                               $scope.initMasterTipos();
-                           }).catch(function (result) {
-                           });   
-                       }
            }]);

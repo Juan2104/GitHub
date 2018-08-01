@@ -32,11 +32,13 @@ namespace SistemaSLS.Controllers
             return View();
         }
 
-        public JsonResult GetInit()
+        public async Task<JsonResult> GetInit()
         {
             var result = new
             {
-                TipoMoneda = Mapper.Map<List<TipoMonedaDTO>>(TipoMonedaService.GetAll())
+
+                TipoMoneda = Mapper.Map<List<TipoMonedaDTO>>(await TipoMonedaService.GetAll())
+               
             };
             return Json(result, JsonRequestBehavior.AllowGet);
         }

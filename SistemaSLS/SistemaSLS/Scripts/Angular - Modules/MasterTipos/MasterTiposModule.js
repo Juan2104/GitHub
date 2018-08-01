@@ -1,23 +1,22 @@
-﻿angular.module('Master', [
-    'master.list.ctrl',
-    'master.service',
+﻿angular.module('MasterTipos', [
+    'MasterTipos.list.ctrl',
+    'MasterTipos.service',
     'ngRoute',
     'ngAnimate',
     'mgcrea.ngStrap',
     'ngSanitize',
-    'ngTable',
     'ngMessages',
-    'am.multiselect',
-    'ngFileUpload',
+    'ngTable',
 ]).config([
     '$routeProvider',
     '$locationProvider',
     "$httpProvider",
     function ($routeProvider, $locationProvider, $httpProvider) {
-        $httpProvider.defaults.headers.common = {};
-        $httpProvider.defaults.headers.post = { "Content-Type": "application/json" };
-        $httpProvider.defaults.headers.put = {};
-        $httpProvider.defaults.headers.patch = {};
+        $routeProvider.when('/Index', {
+            templateUrl: 'MasterTiposList',
+            controller: 'MasterTiposCtrl',
+        });
+
         $routeProvider.otherwise({ redirectTo: '/' });
 
         var regexIso8601 = /\/Date\((\d*)\)\//;

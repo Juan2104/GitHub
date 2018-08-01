@@ -1,48 +1,114 @@
-﻿<style>
-    .btn-burger-Menu {
-        background-color: #5663b4 !important;
-    }
-
-    html, body {
-        height: 160% !important;
-    }
-</style>
-
-
-<div ng-class="{'loading':  isLoading}"></div>
-<div style="height: 100%" ng-init="initMaster()">
-    <div class="fullHeigth">
-        <div class="firstColumn">
-            <div class="cardTableMaster">
-                <div>
-                    <h3 style="text-align:center;">Tipo Moneda</h3>
-                    <div class="actionRigth">
-                        <button class="btn btn-success" ng-click="TipoMoneda = {}" data-target="#ModalCreateTipoModal" data-toggle="modal">
-                            <i class="fas fa-plus" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <table ng-table="TipoMonedaTable" class="table table-condensed table-bordered">
-                        <tbody>
-                            <tr ng-repeat="row in $data | orderBy: 'Nombre'">
-                                <td data-title="'Acción'" class="actionWidthApplication">
-                                    <button class="btn btn-primary" data-target="#ModalCreateTipoMoneda" data-toggle="modal"
-                                            ng-click="loadTipoMoneda(row)">
-                                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                                    </button>
-                                    <button ng-click="loadTipoMoneda(row)" class="btn btn-success"
-                                            data-target="#ModalDeleteTipoMoneda" data-toggle="modal">
-                                        <i class="fas fa-trash" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                                <td data-title="'Nombre'">{{row.Nombre}}</td>
-                                <td data-title="'Cambio'">{{row.Cambio}}</td>
-                                <td data-title="'Fecha'">{{row.Fecha}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
+﻿<div ng-class="{'loading':  isLoading}"></div>
+<div class="TipoMonedaCard" ng-init="initMasterTipo()">
+    <div class="titleCard">
+        <h3 class="h3TitleCard">Tipo Moneda</h3>
+    </div>
+    <div class="buttonGroup">
+        <div class="buttonOne">
+            <button class="btn btn-success" ng-click="CleanTipoMoneda();" data-target="#ModalCreateEditTipoMoneda" data-toggle="modal">
+                Nuevo Tipo Moneda
+            </button>
         </div>
     </div>
+    <div class="tableSection">
+        <table ng-table="TipoMonedaTable" id="TipoMonedaTable" class="table table-condensed table-bordered TipoMoneda">
+            <tbody>
+                <tr ng-repeat="row in $data">
+                    <td data-title="'Acciones'" style="width:14%;">
+                        <button class="btn btn-primary" ng-click="loadTipoMoneda(row)"
+                                data-target="#ModalCreateEditTipoMoneda" data-toggle="modal">
+                            <i class="fas fa-pencil-alt"></i>
+                            Editar
+                        </button>
+                        <button class="btn btn-danger" ng-click="loadTipoMoneda(row)"
+                                data-target="#ModalDeleteConfirm" data-toggle="modal">
+                            <i class="fas fa-trash-alt"></i>
+                            Eliminar
+                        </button>
+                    </td>                    
+                    <td data-title="'Nombre'" filter="{Nombre: 'text'}">{{row.Nombre}}</td>
+                    <td data-title="'Cambio'">{{row.Cambio}}</td>
+                    <td data-title="'Fecha'">{{row.Fecha}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+<div class="modal fade" id="ModalCreateEditTipoMoneda" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Nuevo Tipo Moneda</h4>
+            </div>
+            <div class="modal-body">
+                <form name="TipoMonedaForm">
+                    <div class="inputLine">
+                        <label>Nombre</label>
+                        <input class="form-control" ng-model="TipoMoneda.Nombre" required />
+                    </div>
+                    <div class="inputLine">
+                        <label>Cambio</label>
+                        <input class="form-control" ng-model="TipoMoneda.Cambio" required />
+                    </div>
+                    @*<div class="inputLine" style="margin-bottom:15px;">
+                            <div class="halfInput">
+                                <label>Solo Lectura</label>
+                                <input type="checkbox" ng-change="rol.Edit = false" ng-model="rol.ReadOnly" required />
+                            </div>
+                            <div class="halfInput">
+                                <label>Puede editar</label>
+                                <input type="checkbox" ng-change="rol.ReadOnly = false"  ng-model="rol.Edit" required />
+                            </div>
+                        </div>*@
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button ng-show="isSave" type="button" class="btn buttonNew"
+                        ng-disabled="TipoMonedaForm.$invalid" data-dismiss="modal"
+                        ng-click="saveTipoMoneda()">
+                    Crear
+                </button>
+                <button ng-show="!isSave" type="button" data-dismiss="modal"
+                        class="btn buttonNew" ng-disabled="TipoMonedaForm.$invalid"
+                        ng-click="editTipoMoneda()">
+                    Editar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="ModalMessage" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-class="{'success': isSuccess, 'error': !isSuccess}">{{message}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="ModalDeleteConfirm" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Aviso</h4>
+            </div>
+            <div class="modal-body">
+                <p> ¿Desea eliminar la empresa: <b>{{TipoMoneda.IdTipoMoneda}}</b>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn buttonNew" ng-click="DeleteTipoMoneda()" data-dismiss="modal">Eliminar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
