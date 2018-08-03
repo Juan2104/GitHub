@@ -238,6 +238,7 @@
     <Content Include="Content\Theme\images\image-gallery\thumb\thumb-7.jpg" />
     <Content Include="Content\Theme\images\image-gallery\thumb\thumb-8.jpg" />
     <Content Include="Content\Theme\images\image-gallery\thumb\thumb-9.jpg" />
+    <Content Include="Content\Theme\images\logo.png" />
     <Content Include="Content\Theme\images\screenshot.png" />
     <Content Include="Content\Theme\images\thumbs-up.png" />
     <Content Include="Content\Theme\images\user-img-background.jpg" />
