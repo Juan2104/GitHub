@@ -13,7 +13,9 @@ namespace SistemaSLS.Utils
             MapperConfiguration = new MapperConfiguration(
           cfg => {
               cfg.CreateMap<TipoPersona, TipoPersonaDTO>().ReverseMap();
-              cfg.CreateMap<TipoMoneda, TipoMonedaDTO>().ReverseMap();        
+              cfg.CreateMap<TipoMoneda, TipoMonedaDTO>().ReverseMap();
+              cfg.CreateMap<TipoServicio, TipoServicioDTO>().ReverseMap();
+              cfg.CreateMap<Servicio, ServicioDTO>().ReverseMap();
           });
         }
     }

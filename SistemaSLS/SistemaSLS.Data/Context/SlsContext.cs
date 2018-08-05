@@ -13,7 +13,8 @@ namespace SistemaSLS.Data.Context
         private static int _contador = 0; 
         public virtual DbSet<TipoPersona> TipoPersona { get; set; }
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
-
+        public virtual DbSet<TipoServicio> TipoServicio { get; set; }
+        public virtual DbSet<Servicio> Servicio { get; set; }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{

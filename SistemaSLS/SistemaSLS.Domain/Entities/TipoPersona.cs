@@ -12,7 +12,6 @@ namespace SistemaSLS.Domain.Entities
 
         [Key]
 
-
         public int IdTipoPersona { get; set; }
 
 

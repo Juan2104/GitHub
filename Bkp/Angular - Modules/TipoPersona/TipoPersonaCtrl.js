@@ -64,7 +64,7 @@
 
                $scope.DeleteTipoPersona = function () {
                    TipoPersonaService.DeleteTipoPersona($scope.TipoPersona.IdTipoPersona).then(function (response) {
-                       $scope.message = "Se ha eliminado el tipo de persona correctamente";
+                       $scope.message = "Se ha eliminado la empresad correctamente";
                        $scope.isSuccess = true;
                        $("#ModalMessage").modal('show');
                        $scope.initTipoPersona();

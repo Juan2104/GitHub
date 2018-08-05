@@ -138,8 +138,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MasterTiposController.cs" />
+    <Compile Include="Controllers\ServicioController.cs" />
+    <Compile Include="Controllers\TipoMonedaController.cs" />
     <Compile Include="Controllers\TipoPersonaController.cs" />
+    <Compile Include="Controllers\TipoServicioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,6 +240,7 @@
     <Content Include="Content\Theme\images\image-gallery\thumb\thumb-7.jpg" />
     <Content Include="Content\Theme\images\image-gallery\thumb\thumb-8.jpg" />
     <Content Include="Content\Theme\images\image-gallery\thumb\thumb-9.jpg" />
+    <Content Include="Content\Theme\images\logo.png" />
     <Content Include="Content\Theme\images\screenshot.png" />
     <Content Include="Content\Theme\images\thumbs-up.png" />
     <Content Include="Content\Theme\images\user-img-background.jpg" />
@@ -3445,12 +3448,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\Angular - Modules\MasterTipos\MasterTiposCtrl.js" />
-    <Content Include="Scripts\Angular - Modules\MasterTipos\MasterTiposModule.js" />
-    <Content Include="Scripts\Angular - Modules\Services\MasterTiposService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\ServicioService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\TipoMonedaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoPersonaService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\TipoServicioService.js" />
+    <Content Include="Scripts\Angular - Modules\Servicio\ServicioCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Servicio\ServicioModule.js" />
+    <Content Include="Scripts\Angular - Modules\TipoMoneda\TipoMonedaCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\TipoMoneda\TipoMonedaModule.js" />
     <Content Include="Scripts\Angular - Modules\TipoPersona\TipoPersonaCtrl.js" />
     <Content Include="Scripts\Angular - Modules\TipoPersona\TipoPersonaModule.js" />
+    <Content Include="Scripts\Angular - Modules\TipoServicio\TipoServicioCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\TipoServicio\TipoServicioModule.js" />
     <Content Include="Scripts\Angular\angular-animate.min.js" />
     <Content Include="Scripts\Angular\angular-aria.min.js" />
     <Content Include="Scripts\Angular\angular-filter.js" />
@@ -3696,9 +3705,15 @@
     <Content Include="Views\TipoPersona\Bundle.cshtml" />
     <Content Include="Views\TipoPersona\Index.cshtml" />
     <Content Include="Views\TipoPersona\List.cshtml" />
-    <Content Include="Views\MasterTipos\List.cshtml" />
-    <Content Include="Views\MasterTipos\Bundle.cshtml" />
-    <Content Include="Views\MasterTipos\Index.cshtml" />
+    <Content Include="Views\TipoMoneda\Bundle.cshtml" />
+    <Content Include="Views\TipoMoneda\Index.cshtml" />
+    <Content Include="Views\TipoMoneda\List.cshtml" />
+    <Content Include="Views\TipoServicio\List.cshtml" />
+    <Content Include="Views\TipoServicio\Bundle.cshtml" />
+    <Content Include="Views\TipoServicio\Index.cshtml" />
+    <Content Include="Views\Servicio\Bundle.cshtml" />
+    <Content Include="Views\Servicio\Index.cshtml" />
+    <Content Include="Views\Servicio\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

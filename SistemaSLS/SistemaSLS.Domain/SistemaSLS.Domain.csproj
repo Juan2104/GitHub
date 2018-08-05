@@ -58,10 +58,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\Servicio.cs" />
     <Compile Include="DTOs\TipoMonedaDTO.cs" />
     <Compile Include="DTOs\TipoPersonaDTO.cs" />
+    <Compile Include="DTOs\TipoServicioDTO.cs" />
+    <Compile Include="Entities\Servicio.cs" />
     <Compile Include="Entities\TipoMoneda.cs" />
     <Compile Include="Entities\TipoPersona.cs" />
+    <Compile Include="Entities\TipoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

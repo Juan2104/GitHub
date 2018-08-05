@@ -10,59 +10,63 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Threading.Tasks;
-
 namespace SistemaSLS.Controllers
 {
-    public class MasterTiposController : Controller
+
+    public class TipoMonedaController : Controller
     {
         private SlsContext context;
         private TipoMonedaService TipoMonedaService;
         IMapper Mapper;
 
-        public MasterTiposController()
+
+        public TipoMonedaController()
         {
             context = new SlsContext();
             TipoMonedaService = new TipoMonedaService(context);
             Mapper = ConfigureAutoMapper.MapperConfiguration.CreateMapper();
         }
 
-        // GET: MasterTipos
+
+
+        //  : TipoMoneda
         public ActionResult Index()
         {
             return View();
         }
 
-        public async Task<JsonResult> GetInit()
+
+        public async Task<JsonResult> Get()
+        {
+            return Json(Mapper.Map<List<TipoMonedaDTO>>(await TipoMonedaService.GetAll()), JsonRequestBehavior.AllowGet);
+        }
+
+
+        public JsonResult Post(TipoMonedaDTO TipoMonedaDTO)
         {
             var result = new
             {
-
-                TipoMoneda = Mapper.Map<List<TipoMonedaDTO>>(await TipoMonedaService.GetAll())
-               
+                TipoMonedaDTOid = TipoMonedaService.SaveTipoMoneda(Mapper.Map<SistemaSLS.Domain.Entities.TipoMoneda>(TipoMonedaDTO))
             };
+
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-
-        public JsonResult SaveTipoMoneda(TipoMonedaDTO TipoMoneda)
+        public JsonResult Update(TipoMonedaDTO TipoMonedaDTO)
         {
-            TipoMonedaService.SaveTipoMoneda(Mapper.Map<TipoMoneda>(TipoMoneda));
-            return Json("", JsonRequestBehavior.AllowGet);
+            var result = new
+            {
+                TipoMonedaDTOid = TipoMonedaService.EditTipoMoneda(Mapper.Map<SistemaSLS.Domain.Entities.TipoMoneda>(TipoMonedaDTO))
+            };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult EditTipoMoneda(TipoMonedaDTO TipoMoneda)
-        {
-            TipoMonedaService.EditTipoMoneda(Mapper.Map<TipoMoneda>(TipoMoneda));
-            return Json("", JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult DeleteTipoMoneda(int IdTipoMoneda)
+        public JsonResult Delete(int IdTipoMoneda)
         {
             TipoMonedaService.DeleteTipoMoneda(IdTipoMoneda);
             return Json("", JsonRequestBehavior.AllowGet);
         }
-
-
 
     }
 }

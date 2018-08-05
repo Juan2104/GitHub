@@ -1,35 +1,36 @@
 ﻿<div ng-class="{'loading':  isLoading}"></div>
 
-<div class="panel panel-danger" ng-init="initTipoPersona()">
+<div class="panel panel-danger" ng-init="initTipoServicio()">
     <div class="panel-heading">
-        <h3 class="panel-title">Tipo Personas</h3>
+        <h3 class="panel-title">Tipo Servicios</h3>
     </div>
     <div class="panel-body">
         <div class="buttonOne">
-            <button class="btn btn-dark" ng-click="CleanTipoPersona();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
+            <button class="btn btn-dark" ng-click="CleanTipoServicio();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
                 <span class="glyphicon glyphicon-plus"></span>
             </button>
         </div>
     </div>
 
     <div class="table table-striped">
-        <table ng-table="TipoPersonaTable" id="TipoPersonaTable" class="table table-bordered">
+        <table ng-table="TipoServicioTable" id="TipoServicioTable" class="table table-bordered">
             <tbody>
                 <tr ng-repeat="row in $data">
                     <td data-title="'Acciones'" style="width:14%;">
-                        <button type="button" class="btn" ng-click="loadTipoPersona(row)"
+                        <button type="button" class="btn" ng-click="loadTipoServicio(row)"
                                 data-target="#ModalCreateEditEmpresa" data-toggle="modal">
                             <i class="fas fa-pencil-alt"></i>
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
-                        <button type="button" class="btn" ng-click="loadTipoPersona(row)"
+                        <button type="button" class="btn" ng-click="loadTipoServicio(row)"
                                 data-target="#ModalDeleteConfirm" data-toggle="modal">
                             <i class="fas fa-trash-alt"></i>
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
-                    </td>
-                    <td data-title="'Persona id'">{{row.IdTipoPersona}}</td>
-                    <td data-title="'Descripción'">{{row.descripcion}}</td>
+                    </td>                   
+                    <td data-title="'Nombre'">{{row.Nombre}}</td>
+                    <td data-title="'Descripcion'">{{row.Descripcion}}</td>
+                    <td data-title="'Valida'">{{row.Valida}}</td>
                 </tr>
             </tbody>
         </table>
@@ -44,33 +45,28 @@
                 <h4 class="modal-title">Nuevo Tipo Persona</h4>
             </div>
             <div class="modal-body">
-                <form name="TipoPersonaForm">
+                <form name="TipoServicioForm">
                     <div class="inputLine">
-                        <label>Descripcion</label>
-                        <input class="form-control" ng-model="TipoPersona.descripcion" required />
+                        <label>Nombre</label>
+                        <input class="form-control" ng-model="TipoServicio.Nombre" />
+                        <label>Descricpion</label>
+                        <input class="form-control" ng-model="TipoServicio.Descripcion" />
+                        <label>Valida</label>
+                        <input class="form-control" ng-model="TipoServicio.Valida" required />
                     </div>
-                    @*<div class="inputLine" style="margin-bottom:15px;">
-                            <div class="halfInput">
-                                <label>Solo Lectura</label>
-                                <input type="checkbox" ng-change="rol.Edit = false" ng-model="rol.ReadOnly" required />
-                            </div>
-                            <div class="halfInput">
-                                <label>Puede editar</label>
-                                <input type="checkbox" ng-change="rol.ReadOnly = false"  ng-model="rol.Edit" required />
-                            </div>
-                        </div>*@
+
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button ng-show="isSave" type="button" class="btn buttonNew"
-                        ng-disabled="TipoPersonaForm.$invalid" data-dismiss="modal"
-                        ng-click="saveTipoPersona()">
+                        ng-disabled="TipoServicioForm.$invalid" data-dismiss="modal"
+                        ng-click="saveTipoServicio()">
                     Crear
                 </button>
                 <button ng-show="!isSave" type="button" data-dismiss="modal"
-                        class="btn buttonNew" ng-disabled="TipoPersonaForm.$invalid"
-                        ng-click="editTipoPersona()">
+                        class="btn buttonNew" ng-disabled="TipoServicioForm.$invalid"
+                        ng-click="editTipoServicio()">
                     Editar
                 </button>
             </div>
@@ -103,11 +99,11 @@
                 <h4 class="modal-title">Aviso</h4>
             </div>
             <div class="modal-body">
-                <p> ¿Desea eliminar el tipo de persona: <b>{{TipoPersona.descripcion}}</b>?</p>
+                <p> ¿Desea eliminar el tipo de Servicio: <b>{{TipoServicio.Nombre}}</b>?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn buttonNew" ng-click="DeleteTipoPersona()" data-dismiss="modal">Eliminar</button>
+                <button type="button" class="btn buttonNew" ng-click="DeleteTipoServicio()" data-dismiss="modal">Eliminar</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

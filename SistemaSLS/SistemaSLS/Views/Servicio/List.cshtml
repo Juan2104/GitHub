@@ -1,84 +1,76 @@
 ﻿<div ng-class="{'loading':  isLoading}"></div>
-<div class="TipoMonedaCard" ng-init="initMasterTipo()">
-    <div class="titleCard">
-        <h3 class="h3TitleCard">Tipo Moneda</h3>
+
+<div class="panel panel-danger" ng-init="initServicio()">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tipo Servicios</h3>
     </div>
-    <div class="buttonGroup">
+    <div class="panel-body">
         <div class="buttonOne">
-            <button class="btn btn-success" ng-click="CleanTipoMoneda();" data-target="#ModalCreateEditTipoMoneda" data-toggle="modal">
-                Nuevo Tipo Moneda
+            <button class="btn btn-dark" ng-click="CleanServicio();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
+                <span class="glyphicon glyphicon-plus"></span>
             </button>
         </div>
     </div>
-    <div class="tableSection">
-        <table ng-table="TipoMonedaTable" id="TipoMonedaTable" class="table table-condensed table-bordered TipoMoneda">
+
+    <div class="table table-striped">
+        <table ng-table="ServicioTable" id="ServicioTable" class="table table-bordered">
             <tbody>
                 <tr ng-repeat="row in $data">
                     <td data-title="'Acciones'" style="width:14%;">
-                        <button class="btn btn-primary" ng-click="loadTipoMoneda(row)"
-                                data-target="#ModalCreateEditTipoMoneda" data-toggle="modal">
+                        <button type="button" class="btn" ng-click="loadServicio(row)"
+                                data-target="#ModalCreateEditEmpresa" data-toggle="modal">
                             <i class="fas fa-pencil-alt"></i>
-                            Editar
+                            <span class="glyphicon glyphicon-refresh"></span>
                         </button>
-                        <button class="btn btn-danger" ng-click="loadTipoMoneda(row)"
+                        <button type="button" class="btn" ng-click="loadServicio(row)"
                                 data-target="#ModalDeleteConfirm" data-toggle="modal">
                             <i class="fas fa-trash-alt"></i>
-                            Eliminar
+                            <span class="glyphicon glyphicon-remove"></span>
                         </button>
-                    </td>                    
-                    <td data-title="'Nombre'" filter="{Nombre: 'text'}">{{row.Nombre}}</td>
-                    <td data-title="'Cambio'">{{row.Cambio}}</td>
-                    <td data-title="'Fecha'">{{row.Fecha}}</td>
+                    </td>                   
+                    <td data-title="'Nombre'">{{row.Nombre}}</td>
+                    <td data-title="'Tipo Servicio'">{{row.IdServicio}}</td>                    
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-<div class="modal fade" id="ModalCreateEditTipoMoneda" tabindex="-1" role="dialog">
+
+<div class="modal fade" id="ModalCreateEditEmpresa" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Nuevo Tipo Moneda</h4>
+                <h4 class="modal-title">Nuevo Tipo Persona</h4>
             </div>
             <div class="modal-body">
-                <form name="TipoMonedaForm">
+                <form name="ServicioForm">
                     <div class="inputLine">
                         <label>Nombre</label>
-                        <input class="form-control" ng-model="TipoMoneda.Nombre" required />
-                    </div>
-                    <div class="inputLine">
-                        <label>Cambio</label>
-                        <input class="form-control" ng-model="TipoMoneda.Cambio" required />
-                    </div>
-                    @*<div class="inputLine" style="margin-bottom:15px;">
-                            <div class="halfInput">
-                                <label>Solo Lectura</label>
-                                <input type="checkbox" ng-change="rol.Edit = false" ng-model="rol.ReadOnly" required />
-                            </div>
-                            <div class="halfInput">
-                                <label>Puede editar</label>
-                                <input type="checkbox" ng-change="rol.ReadOnly = false"  ng-model="rol.Edit" required />
-                            </div>
-                        </div>*@
+                        <input class="form-control" ng-model="Servicio.Nombre" required/>
+                        <label>Tipo Servicio</label>
+                        <input class="form-control" ng-model="Servicio.IdServicio" />
+                        </div>
+
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button ng-show="isSave" type="button" class="btn buttonNew"
-                        ng-disabled="TipoMonedaForm.$invalid" data-dismiss="modal"
-                        ng-click="saveTipoMoneda()">
+                        ng-disabled="ServicioForm.$invalid" data-dismiss="modal"
+                        ng-click="saveServicio()">
                     Crear
                 </button>
                 <button ng-show="!isSave" type="button" data-dismiss="modal"
-                        class="btn buttonNew" ng-disabled="TipoMonedaForm.$invalid"
-                        ng-click="editTipoMoneda()">
+                        class="btn buttonNew" ng-disabled="ServicioForm.$invalid"
+                        ng-click="editServicio()">
                     Editar
                 </button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
 <div class="modal fade" id="ModalMessage" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -95,6 +87,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
 <div class="modal fade" id="ModalDeleteConfirm" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -103,11 +96,11 @@
                 <h4 class="modal-title">Aviso</h4>
             </div>
             <div class="modal-body">
-                <p> ¿Desea eliminar la empresa: <b>{{TipoMoneda.IdTipoMoneda}}</b>?</p>
+                <p> ¿Desea eliminar el tipo de Servicio: <b>{{Servicio.Nombre}}</b>?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn buttonNew" ng-click="DeleteTipoMoneda()" data-dismiss="modal">Eliminar</button>
+                <button type="button" class="btn buttonNew" ng-click="DeleteServicio()" data-dismiss="modal">Eliminar</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
