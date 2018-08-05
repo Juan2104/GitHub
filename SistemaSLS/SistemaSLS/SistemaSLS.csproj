@@ -3714,6 +3714,7 @@
     <Content Include="Views\Servicio\Bundle.cshtml" />
     <Content Include="Views\Servicio\Index.cshtml" />
     <Content Include="Views\Servicio\List.cshtml" />
+    <Content Include="Views\Shared\_RenderScriptsTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
