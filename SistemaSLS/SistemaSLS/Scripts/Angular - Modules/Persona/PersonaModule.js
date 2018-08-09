@@ -1,6 +1,6 @@
-﻿angular.module('Pais', [
-    'Pais.list.ctrl',
-    'Pais.service',
+﻿angular.module('Persona', [
+    'Persona.list.ctrl',
+    'Persona.service',
     'ngRoute',
     'ngAnimate',
     'mgcrea.ngStrap',
@@ -13,8 +13,8 @@
     "$httpProvider",
     function ($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider.when('/Index', {
-            templateUrl: 'PaisList',
-            controller: 'PaisCtrl',
+            templateUrl: 'PersonaList',
+            controller: 'PersonaCtrl',
         });
 
         $routeProvider.otherwise({ redirectTo: '/' });

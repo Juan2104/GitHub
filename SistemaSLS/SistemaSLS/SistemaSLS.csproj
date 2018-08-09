@@ -137,7 +137,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CiudadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaisController.cs" />
+    <Compile Include="Controllers\PersonaController.cs" />
+    <Compile Include="Controllers\ProvinciaController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
     <Compile Include="Controllers\TipoMonedaController.cs" />
     <Compile Include="Controllers\TipoPersonaController.cs" />
@@ -3448,6 +3452,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Angular - Modules\Ciudad\CiudadCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Ciudad\CiudadModule.js" />
+    <Content Include="Scripts\Angular - Modules\Pais\PaisCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Pais\PaisModule.js" />
+    <Content Include="Scripts\Angular - Modules\Persona\PersonaCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Persona\PersonaModule.js" />
+    <Content Include="Scripts\Angular - Modules\Provincia\ProvinciaCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Provincia\ProvinciaModule.js" />
+    <Content Include="Scripts\Angular - Modules\Services\CiudadService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\PaisService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\PersonaService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\ProvinciaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\ServicioService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoMonedaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoPersonaService.js" />
@@ -3714,6 +3730,18 @@
     <Content Include="Views\Servicio\Bundle.cshtml" />
     <Content Include="Views\Servicio\Index.cshtml" />
     <Content Include="Views\Servicio\List.cshtml" />
+    <Content Include="Views\Persona\Bundle.cshtml" />
+    <Content Include="Views\Persona\Index.cshtml" />
+    <Content Include="Views\Persona\List.cshtml" />
+    <Content Include="Views\Pais\Bundle.cshtml" />
+    <Content Include="Views\Pais\Index.cshtml" />
+    <Content Include="Views\Pais\List.cshtml" />
+    <Content Include="Views\Ciudad\Bundle.cshtml" />
+    <Content Include="Views\Ciudad\Index.cshtml" />
+    <Content Include="Views\Ciudad\List.cshtml" />
+    <Content Include="Views\Provincia\Bundle.cshtml" />
+    <Content Include="Views\Provincia\Index.cshtml" />
+    <Content Include="Views\Provincia\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

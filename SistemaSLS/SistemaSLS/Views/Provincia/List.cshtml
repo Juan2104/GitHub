@@ -1,35 +1,35 @@
 ﻿<div ng-class="{'loading':  isLoading}"></div>
 
-<div class="panel panel-danger" ng-init="initServicio()">
+<div class="panel panel-danger" ng-init="initProvincia()">
     <div class="panel-heading">
-        <h3 class="panel-title">Servicios</h3>
+        <h3 class="panel-title">Provincia</h3>
     </div>
     <div class="panel-body">
         <div class="buttonOne">
-            <button class="btn btn-dark" ng-click="CleanServicio();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
+            <button class="btn btn-dark" ng-click="CleanProvincia();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
                 <span class="glyphicon glyphicon-plus"></span>
             </button>
         </div>
     </div>
 
     <div class="table table-striped">
-        <table ng-table="ServicioTable" id="ServicioTable" class="table table-bordered">
+        <table ng-table="ProvinciaTable" id="ProvinciaTable" class="table table-bordered">
             <tbody>
                 <tr ng-repeat="row in $data">
                     <td data-title="'Acciones'" style="width:14%;">
-                        <button type="button" class="btn" ng-click="loadServicio(row)"
+                        <button type="button" class="btn" ng-click="loadProvincia(row)"
                                 data-target="#ModalCreateEditEmpresa" data-toggle="modal">
                             <i class="fas fa-pencil-alt"></i>
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
-                        <button type="button" class="btn" ng-click="loadServicio(row)"
+                        <button type="button" class="btn" ng-click="loadProvincia(row)"
                                 data-target="#ModalDeleteConfirm" data-toggle="modal">
                             <i class="fas fa-trash-alt"></i>
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </td>
-                    <td data-title="'Nombre'">{{row.Nombre}}</td>
-                    <td data-title="'Tipo Servicio'">{{row.IdServicio}}</td>
+                    <td data-title="'Descripcion'">{{row.Descripcion}}</td>
+                    <td data-title="'Pais'">{{row.IdPais}}</td>              
                 </tr>
             </tbody>
         </table>
@@ -44,12 +44,12 @@
                 <h4 class="modal-title">Nuevo Tipo Persona</h4>
             </div>
             <div class="modal-body">
-                <form name="ServicioForm">
+                <form name="ProvinciaForm">
                     <div class="inputLine">
-                        <label>Nombre</label>
-                        <input class="form-control" ng-model="Servicio.Nombre" required />
-                        <label>Tipo Servicio</label>
-                        <input class="form-control" ng-model="Servicio.IdServicio" />
+                        <label>Descripción</label>
+                        <input class="form-control" ng-model="Provincia.Descripcion" required />
+                        <label>Pais</label>
+                        <input class="form-control" ng-model="Provincia.IdPais" required />
                     </div>
 
                 </form>
@@ -57,13 +57,13 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button ng-show="isSave" type="button" class="btn buttonNew"
-                        ng-disabled="ServicioForm.$invalid" data-dismiss="modal"
-                        ng-click="saveServicio()">
+                        ng-disabled="ProvinciaForm.$invalid" data-dismiss="modal"
+                        ng-click="saveProvincia()">
                     Crear
                 </button>
                 <button ng-show="!isSave" type="button" data-dismiss="modal"
-                        class="btn buttonNew" ng-disabled="ServicioForm.$invalid"
-                        ng-click="editServicio()">
+                        class="btn buttonNew" ng-disabled="ProvinciaForm.$invalid"
+                        ng-click="editProvincia()">
                     Editar
                 </button>
             </div>
@@ -96,11 +96,11 @@
                 <h4 class="modal-title">Aviso</h4>
             </div>
             <div class="modal-body">
-                <p> ¿Desea eliminar el tipo de Servicio: <b>{{Servicio.Nombre}}</b>?</p>
+                <p> ¿Desea eliminar el tipo de Provincia: <b>{{Provincia.Descripcion}}</b>?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn buttonNew" ng-click="DeleteServicio()" data-dismiss="modal">Eliminar</button>
+                <button type="button" class="btn buttonNew" ng-click="DeleteProvincia()" data-dismiss="modal">Eliminar</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
