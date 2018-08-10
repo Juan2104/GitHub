@@ -1,4 +1,4 @@
-﻿    using SistemaSLS.Data.Repositories.Base;
+﻿using SistemaSLS.Data.Repositories.Base;
 using SistemaSLS.Data.Context;
 using SistemaSLS.Data.Repositories;
 using SistemaSLS.Domain.Entities;
