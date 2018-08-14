@@ -281,10 +281,13 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">Menu SLS</li>     
-
-
+                    <li class="header">Menu SLS</li>
+                     
                     <li>
+                        <a href="/Agenda#/Index" class="Agenda">Agenda</a>
+                    </li>
+                    
+                     
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">business</i>
                         <span>Configuración</span>
@@ -304,21 +307,10 @@
                                 <li>
                                     <a href="/TipoServicio#/Index" class="TipoServicio">Tipo Servicios</a>
                                 </li>
-                                <li>
-                                    <a href="/Pais#/Index" class="Pais">Pais</a>
-                                </li>
-                                <li>
-                                    <a href="/Provincia#/Index" class="Provincia">Provincia</a>
-                                </li>
-                                <li>
-                                    <a href="/Ciudad#/Index" class="Ciudad">Ciudad</a>
-                                </li>
-                            </ul>                   
+                            </ul>
                         </li>
-                        
                         <li>
                             <a href="/Servicio#/Index" class="Servicio">Servicios</a>
-
                         </li>
                         <li>
                             <a href="/Pais#/Index" class="Pais">Pais</a>
@@ -329,25 +321,11 @@
                         <li>
                             <a href="/Ciudad#/Index" class="Ciudad">Ciudad</a>
                         </li>
-                        
                     </ul>
-                    </li>
-                    <li>                        
-                        <a href="/Persona#/Index" class="Persona">Persona</a>                                                    
+                    <li>
+                        <a href="/Persona#/Index" class="Persona">Persona</a>
                     </li>
 
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                   
-                   
                 </ul>
             </div>
             <!-- #Menu -->
@@ -510,13 +488,11 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="container body-content">
-                @RenderBody()
-                <hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year</p>
-                </footer>
-            </div>
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year</p>
+            </footer>
         </div>
     </section>
     <!-- Jquery Core Js -->

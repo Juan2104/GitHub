@@ -137,6 +137,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AgendaController.cs" />
     <Compile Include="Controllers\CiudadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
@@ -3452,6 +3453,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Angular - Modules\Agenda\AgendaCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Agenda\AgendaModule.js" />
     <Content Include="Scripts\Angular - Modules\Ciudad\CiudadCtrl.js" />
     <Content Include="Scripts\Angular - Modules\Ciudad\CiudadModule.js" />
     <Content Include="Scripts\Angular - Modules\Pais\PaisCtrl.js" />
@@ -3460,6 +3463,7 @@
     <Content Include="Scripts\Angular - Modules\Persona\PersonaModule.js" />
     <Content Include="Scripts\Angular - Modules\Provincia\ProvinciaCtrl.js" />
     <Content Include="Scripts\Angular - Modules\Provincia\ProvinciaModule.js" />
+    <Content Include="Scripts\Angular - Modules\Services\AgendaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\CiudadService.js" />
     <Content Include="Scripts\Angular - Modules\Services\PaisService.js" />
     <Content Include="Scripts\Angular - Modules\Services\PersonaService.js" />
@@ -3742,6 +3746,9 @@
     <Content Include="Views\Provincia\Bundle.cshtml" />
     <Content Include="Views\Provincia\Index.cshtml" />
     <Content Include="Views\Provincia\List.cshtml" />
+    <Content Include="Views\Agenda\Bundle.cshtml" />
+    <Content Include="Views\Agenda\Index.cshtml" />
+    <Content Include="Views\Agenda\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\CiudadDTO.cs" />
+    <Compile Include="DTOs\AgendaDTO.cs" />
     <Compile Include="DTOs\PaisDTO.cs" />
     <Compile Include="DTOs\PersonaDTO.cs" />
     <Compile Include="DTOs\ProvinciaDTO.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="DTOs\TipoMonedaDTO.cs" />
     <Compile Include="DTOs\TipoPersonaDTO.cs" />
     <Compile Include="DTOs\TipoServicioDTO.cs" />
+    <Compile Include="Entities\Agenda.cs" />
     <Compile Include="Entities\Ciudad.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Persona.cs" />
