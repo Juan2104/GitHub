@@ -64,9 +64,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\BaseRepository.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
+    <Compile Include="Repositories\CiudadRepository.cs" />
+    <Compile Include="Repositories\PaisRepository.cs" />
+    <Compile Include="Repositories\PersonaBaseRepository.cs" />
+    <Compile Include="Repositories\ProvinciaRepository.cs" />
     <Compile Include="Repositories\ServicioBaseRepository.cs" />
+    <Compile Include="Repositories\TipoDictadoRepository.cs" />
     <Compile Include="Repositories\TipoMonedaRepository.cs" />
     <Compile Include="Repositories\TipoPersonaRepository.cs" />
+    <Compile Include="Repositories\AgendaBaseRepository.cs" />
     <Compile Include="Repositories\TipoServicioBaseRepository.cs" />
   </ItemGroup>
   <ItemGroup>

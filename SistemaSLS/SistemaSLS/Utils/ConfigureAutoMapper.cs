@@ -15,7 +15,12 @@ namespace SistemaSLS.Utils
               cfg.CreateMap<TipoPersona, TipoPersonaDTO>().ReverseMap();
               cfg.CreateMap<TipoMoneda, TipoMonedaDTO>().ReverseMap();
               cfg.CreateMap<TipoServicio, TipoServicioDTO>().ReverseMap();
+              cfg.CreateMap<TipoDictado, TipoDictadoDTO>().ReverseMap();
               cfg.CreateMap<Servicio, ServicioDTO>().ReverseMap();
+              cfg.CreateMap<Persona, PersonaDTO>().ReverseMap();
+              cfg.CreateMap<Pais, PaisDTO>().ReverseMap();
+              cfg.CreateMap<Provincia, ProvinciaDTO>().ReverseMap();
+              cfg.CreateMap<Ciudad, CiudadDTO>().ReverseMap();
           });
         }
     }

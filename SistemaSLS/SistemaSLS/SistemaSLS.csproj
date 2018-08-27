@@ -137,8 +137,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AgendaController.cs" />
+    <Compile Include="Controllers\CiudadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaisController.cs" />
+    <Compile Include="Controllers\PersonaController.cs" />
+    <Compile Include="Controllers\ProvinciaController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
+    <Compile Include="Controllers\TipoDictadoController.cs" />
     <Compile Include="Controllers\TipoMonedaController.cs" />
     <Compile Include="Controllers\TipoPersonaController.cs" />
     <Compile Include="Controllers\TipoServicioController.cs" />
@@ -3448,12 +3454,30 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Angular - Modules\Agenda\AgendaCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Agenda\AgendaModule.js" />
+    <Content Include="Scripts\Angular - Modules\Ciudad\CiudadCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Ciudad\CiudadModule.js" />
+    <Content Include="Scripts\Angular - Modules\Pais\PaisCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Pais\PaisModule.js" />
+    <Content Include="Scripts\Angular - Modules\Persona\PersonaCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Persona\PersonaModule.js" />
+    <Content Include="Scripts\Angular - Modules\Provincia\ProvinciaCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\Provincia\ProvinciaModule.js" />
+    <Content Include="Scripts\Angular - Modules\Services\AgendaService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\CiudadService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\PaisService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\PersonaService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\ProvinciaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\ServicioService.js" />
+    <Content Include="Scripts\Angular - Modules\Services\TipoDictadoService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoMonedaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoPersonaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoServicioService.js" />
     <Content Include="Scripts\Angular - Modules\Servicio\ServicioCtrl.js" />
     <Content Include="Scripts\Angular - Modules\Servicio\ServicioModule.js" />
+    <Content Include="Scripts\Angular - Modules\TipoDictado\TipoDictadoCtrl.js" />
+    <Content Include="Scripts\Angular - Modules\TipoDictado\TipoDictadoModule.js" />
     <Content Include="Scripts\Angular - Modules\TipoMoneda\TipoMonedaCtrl.js" />
     <Content Include="Scripts\Angular - Modules\TipoMoneda\TipoMonedaModule.js" />
     <Content Include="Scripts\Angular - Modules\TipoPersona\TipoPersonaCtrl.js" />
@@ -3687,7 +3711,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -3714,6 +3740,24 @@
     <Content Include="Views\Servicio\Bundle.cshtml" />
     <Content Include="Views\Servicio\Index.cshtml" />
     <Content Include="Views\Servicio\List.cshtml" />
+    <Content Include="Views\Persona\Bundle.cshtml" />
+    <Content Include="Views\Persona\Index.cshtml" />
+    <Content Include="Views\Persona\List.cshtml" />
+    <Content Include="Views\Pais\Bundle.cshtml" />
+    <Content Include="Views\Pais\Index.cshtml" />
+    <Content Include="Views\Pais\List.cshtml" />
+    <Content Include="Views\Ciudad\Bundle.cshtml" />
+    <Content Include="Views\Ciudad\Index.cshtml" />
+    <Content Include="Views\Ciudad\List.cshtml" />
+    <Content Include="Views\Provincia\Bundle.cshtml" />
+    <Content Include="Views\Provincia\Index.cshtml" />
+    <Content Include="Views\Provincia\List.cshtml" />
+    <Content Include="Views\Agenda\Bundle.cshtml" />
+    <Content Include="Views\Agenda\Index.cshtml" />
+    <Content Include="Views\Agenda\List.cshtml" />
+    <Content Include="Views\TipoDictado\Bundle.cshtml" />
+    <Content Include="Views\TipoDictado\Index.cshtml" />
+    <Content Include="Views\TipoDictado\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

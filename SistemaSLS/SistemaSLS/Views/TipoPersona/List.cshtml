@@ -28,8 +28,8 @@
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </td>
-                    <td data-title="'Persona id'">{{row.IdTipoPersona}}</td>
-                    <td data-title="'Descripción'">{{row.descripcion}}</td>
+                    @*<td data-title="'Persona id'">{{row.IdTipoPersona}}</td>*@
+                    <td data-title="'Descripción'" filter="{ descripcion: 'text'}">{{row.descripcion}}</td>
                 </tr>
             </tbody>
         </table>

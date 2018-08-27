@@ -1,0 +1,108 @@
+﻿<div ng-class="{'loading':  isLoading}"></div>
+<div class="panel panel-danger" ng-init="initTipoDictado()">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tipo Dictado</h3>
+    </div>
+    <div class="panel-body">
+        <div class="buttonOne">
+            <button class="btn btn-dark" ng-click="CleanTipoDictado();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+    </div>
+    <div class="table table-striped">
+        <table ng-table="TipoDictadoTable" id="TipoDictadoTable" class="table table-bordered">
+            <tbody>
+                <tr ng-repeat="row in $data">
+                    <td data-title="'Acciones'" style="width:14%;">
+                        <button type="button" class="btn" ng-click="loadTipoDictado(row)"
+                                data-target="#ModalCreateEditEmpresa" data-toggle="modal">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </button>
+                        <button type="button" class="btn" ng-click="loadTipoDictado(row)"
+                                data-target="#ModalDeleteConfirm" data-toggle="modal">
+                            <i class="fas fa-trash-alt"></i>
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>                    
+                    <td data-title="'Descripción'" filter="{ Descripcion: 'text'}">{{row.Descripcion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="ModalCreateEditEmpresa" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Nuevo Tipo Dictado</h4>
+            </div>
+            <div class="modal-body">
+                <form name="TipoDictadoForm">
+                    <div class="inputLine">
+                        <label>Descripcion</label>
+                        <input class="form-control" ng-model="TipoDictado.Descripcion" required />
+                    </div>
+                    @*<div class="inputLine" style="margin-bottom:15px;">
+                            <div class="halfInput">
+                                <label>Solo Lectura</label>
+                                <input type="checkbox" ng-change="rol.Edit = false" ng-model="rol.ReadOnly" required />
+                            </div>
+                            <div class="halfInput">
+                                <label>Puede editar</label>
+                                <input type="checkbox" ng-change="rol.ReadOnly = false"  ng-model="rol.Edit" required />
+                            </div>
+                        </div>*@
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button ng-show="isSave" type="button" class="btn buttonNew"
+                        ng-disabled="TipoDictadoForm.$invalid" data-dismiss="modal"
+                        ng-click="saveTipoDictado()">
+                    Crear
+                </button>
+                <button ng-show="!isSave" type="button" data-dismiss="modal"
+                        class="btn buttonNew" ng-disabled="TipoDictadoForm.$invalid"
+                        ng-click="editTipoDictado()">
+                    Editar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="ModalMessage" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-class="{'success': isSuccess, 'error': !isSuccess}">{{message}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="ModalDeleteConfirm" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Aviso</h4>
+            </div>
+            <div class="modal-body">
+                <p> ¿Desea eliminar el tipo de dictado: <b>{{TipoDictado.Descripcion}}</b>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn buttonNew" ng-click="DeleteTipoDictado()" data-dismiss="modal">Eliminar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

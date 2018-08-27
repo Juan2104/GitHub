@@ -2,7 +2,7 @@
 
 <div class="panel panel-danger" ng-init="initServicio()">
     <div class="panel-heading">
-        <h3 class="panel-title">Tipo Servicios</h3>
+        <h3 class="panel-title">Servicios</h3>
     </div>
     <div class="panel-body">
         <div class="buttonOne">
@@ -27,9 +27,9 @@
                             <i class="fas fa-trash-alt"></i>
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
-                    </td>                   
+                    </td>
                     <td data-title="'Nombre'">{{row.Nombre}}</td>
-                    <td data-title="'Tipo Servicio'">{{row.IdServicio}}</td>                    
+                    <td data-title="'Tipo Servicio'">{{row.IdServicio}}</td>
                 </tr>
             </tbody>
         </table>
@@ -47,10 +47,10 @@
                 <form name="ServicioForm">
                     <div class="inputLine">
                         <label>Nombre</label>
-                        <input class="form-control" ng-model="Servicio.Nombre" required/>
+                        <input class="form-control" ng-model="Servicio.Nombre" required />
                         <label>Tipo Servicio</label>
                         <input class="form-control" ng-model="Servicio.IdServicio" />
-                        </div>
+                    </div>
 
                 </form>
             </div>

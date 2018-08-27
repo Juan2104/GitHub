@@ -47,7 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AgendaServicio.cs" />
+    <Compile Include="Services\CiudadServicio.cs" />
+    <Compile Include="Services\PaisService.cs" />
+    <Compile Include="Services\PersonaService.cs" />
+    <Compile Include="Services\ProvinciaService.cs" />
     <Compile Include="Services\ServicioService.cs" />
+    <Compile Include="Services\TipoDictadoService.cs" />
     <Compile Include="Services\TipoMonedaService.cs" />
     <Compile Include="Services\TipoPersonaService.cs" />
     <Compile Include="Services\TipoServicioService.cs" />
