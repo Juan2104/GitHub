@@ -9,6 +9,8 @@
            function ($scope, $filter, $routeParams, $location, ProvinciaService, NgTableParams) {
                $scope.initProvincia = function () {
                    $scope.getProvincia();
+                   $scope.getPaises();
+
                }
 
                $scope.getProvincia = function () {
@@ -17,6 +19,15 @@
                        $scope.dataToFilter = angular.copy(response.data);
                        $scope.Tipo = new NgTableParams({ count: 20 }, { counts: [], dataset: response.data });
                        $scope.isLoading = false;
+                   }).catch(function (result) {
+                       $scope.isLoading = false;
+                   });
+               }
+
+               $scope.getPaises = function () {
+                   $scope.isLoading = true;
+                   ProvinciaService.getPaises().then(function (response) {
+                       $scope.Paises = angular.copy(response.data);
                    }).catch(function (result) {
                        $scope.isLoading = false;
                    });

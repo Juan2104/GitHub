@@ -49,12 +49,16 @@
                         <label>Descripción</label>
                         <input class="form-control" ng-model="Provincia.Descripcion" required />
                         <label>Pais</label>
-                        <input class="form-control" ng-model="Provincia.IdPais" required />
-                    </div>
-
+                        @*<input class="form-control" ng-model="Provincia.IdPais" required />*@
+                        <select class="form-control" ng-options="Pais.Descripcion for Pais in Paises" ng-model="selected"
+                                ng-change="loadCase()" required>
+                            <option value="">Seleccione un pais</option>
+                            <option></option>
+                        </select>
+                    </div> 
                 </form>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer">  
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button ng-show="isSave" type="button" class="btn buttonNew"
                         ng-disabled="ProvinciaForm.$invalid" data-dismiss="modal"
