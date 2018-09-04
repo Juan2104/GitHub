@@ -68,11 +68,13 @@
     <Compile Include="DTOs\TipoPersonaDTO.cs" />
     <Compile Include="DTOs\TipoServicioDTO.cs" />
     <Compile Include="Entities\Agenda.cs" />
+    <Compile Include="Entities\Auditoria.cs" />
     <Compile Include="Entities\Ciudad.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Persona.cs" />
     <Compile Include="Entities\Provincia.cs" />
     <Compile Include="Entities\Servicio.cs" />
+    <Compile Include="Entities\TipoDictado.cs" />
     <Compile Include="Entities\TipoMoneda.cs" />
     <Compile Include="Entities\TipoPersona.cs" />
     <Compile Include="Entities\TipoServicio.cs" />

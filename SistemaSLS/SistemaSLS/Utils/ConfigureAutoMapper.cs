@@ -12,14 +12,15 @@ namespace SistemaSLS.Utils
         {
             MapperConfiguration = new MapperConfiguration(
           cfg => {
-              cfg.CreateMap<TipoPersona, TipoPersonaDTO>().ReverseMap();
-              cfg.CreateMap<TipoMoneda, TipoMonedaDTO>().ReverseMap();
-              cfg.CreateMap<TipoServicio, TipoServicioDTO>().ReverseMap();
-              cfg.CreateMap<Servicio, ServicioDTO>().ReverseMap();
-              cfg.CreateMap<Persona, PersonaDTO>().ReverseMap();
-              cfg.CreateMap<Pais, PaisDTO>().ReverseMap();
-              cfg.CreateMap<Provincia, ProvinciaDTO>().ReverseMap();
-              cfg.CreateMap<Ciudad, CiudadDTO>().ReverseMap();
+          cfg.CreateMap<TipoPersona, TipoPersonaDTO>().ReverseMap();
+          cfg.CreateMap<TipoMoneda, TipoMonedaDTO>().ReverseMap();
+          cfg.CreateMap<TipoServicio, TipoServicioDTO>().ReverseMap();
+          cfg.CreateMap<Servicio, ServicioDTO>().ReverseMap();
+          cfg.CreateMap<Persona, PersonaDTO>().ReverseMap();
+          cfg.CreateMap<Pais, PaisDTO>().ReverseMap();
+          cfg.CreateMap<Provincia, ProvinciaDTO>().ReverseMap();
+          cfg.CreateMap<Ciudad, CiudadDTO>().ReverseMap();
+          cfg.CreateMap<Agenda, AgendaDTO>().ReverseMap();
           });
         }
     }

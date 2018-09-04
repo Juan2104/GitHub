@@ -1,6 +1,6 @@
 ﻿ <div ng-class="{'loading':  isLoading}"></div>
 
-<div class="panel panel-danger" ng-init="initCiudad()">
+<div class="panel panel-danger" ng-init="initAgenda()">
     @*<div class="panel-heading">
         <h3 class="panel-title">Ciudad</h3>
     </div>
@@ -13,23 +13,19 @@
     </div>*@
 
     <div class="table table-striped">
-        <table ng-table="AgendaTable" id="CiudadTable" class="table table-bordered">
+        <table ng-table="AgendaTable" id="AgendaTable" class="table table-bordered">
             <tbody>
                 <tr ng-repeat="row in $data">
                     <td data-title="'Acciones'" style="width:14%;">
-                        <button type="button" class="btn" ng-click="loadCiudad(row)"
+                         <button type="button" class="btn" ng-click="loadAgenda(row)"
                                 data-target="#ModalCreateEditEmpresa" data-toggle="modal">
                             <i class="fas fa-pencil-alt"></i>
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
-                        <button type="button" class="btn" ng-click="loadCiudad(row)"
-                                data-target="#ModalDeleteConfirm" data-toggle="modal">
-                            <i class="fas fa-trash-alt"></i>
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
+                         
                     </td>
                     <td data-title="'Descripcion'">{{row.Descripcion}}</td>
-                    <td data-title="'Id Provincia'">{{row.IdProvincia}}</td>              
+                    <td data-title="'Id Provincia'">{{row.Ciudad.Descripcion}}</td>              
                 </tr>
             </tbody>
         </table>
