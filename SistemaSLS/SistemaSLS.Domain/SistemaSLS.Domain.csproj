@@ -68,6 +68,7 @@
     <Compile Include="DTOs\TipoPersonaDTO.cs" />
     <Compile Include="DTOs\TipoServicioDTO.cs" />
     <Compile Include="Entities\Agenda.cs" />
+    <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\Auditoria.cs" />
     <Compile Include="Entities\Ciudad.cs" />
     <Compile Include="Entities\Pais.cs" />
