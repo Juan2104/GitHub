@@ -28,8 +28,7 @@
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </td>
-                    <td data-title="'Descripcion'">{{row.Descripcion}}</td>
-                    <td data-title="'Pais'">{{row.IdPais}}</td>              
+                    <td data-title="'Descripcion'">{{row.Descripcion}}</td>                                  
                 </tr>
             </tbody>
         </table>
@@ -49,14 +48,15 @@
                         <label>Descripción</label>
                         <input class="form-control" ng-model="Provincia.Descripcion" required />
                         <label>Pais</label>
-                        <input class="form-control" ng-model="Provincia.IdPais" required />
-                        <label>Pais</label>
-                        <select ng-model="selectedPaises" ng-options="item for item in Paises"></select>
-                    </div>
-
-                </form>
+                        @*<input class="form-control" ng-model="Provincia.IdPais" required />*@                        
+                            <select class="form-control" ng-options="Pais.IdPais as Pais.Descripcion for Pais in Paises" ng-model="Provincia.IdPais">
+                                <option value="">Seleccione un Pais</option>
+                                <option></option>
+                            </select>
+                        </div>
+                 </form>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer">  
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button ng-show="isSave" type="button" class="btn buttonNew"
                         ng-disabled="ProvinciaForm.$invalid" data-dismiss="modal"

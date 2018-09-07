@@ -9,6 +9,8 @@
            function ($scope, $filter, $routeParams, $location, PersonaService, NgTableParams) {
                $scope.initPersona = function () {
                    $scope.getPersona();
+                   $scope.getPaises();
+                   $scope.getTiposPersonas();
                }
 
                $scope.getPersona = function () {
@@ -21,6 +23,30 @@
                        $scope.isLoading = false;
                    });
                }
+               $scope.getPaises = function () {
+                   $scope.isLoading = true;
+                   PersonaService.getPaises().then(function (response) {
+                       $scope.Paises = angular.copy(response.data);
+                   }).catch(function (result) {
+                       $scope.isLoading = false;
+                   });
+               }
+                 $scope.getPais = function (id) {
+                   return $filter('filter')($scope.Paises, { 'IdPais': id }, true)[0].Descripcion;
+                 }
+
+                 $scope.getTiposPersonas = function () {
+                     $scope.isLoading = true;
+                     PersonaService.getTiposPersonas().then(function (response) {
+                         $scope.TiposPersonas = angular.copy(response.data);
+                     }).catch(function (result) {
+                         $scope.isLoading = false;
+                     });
+                 }
+
+                 $scope.getTipoPersona = function (id) {
+                     return $filter('filter')($scope.TiposPersonas, { 'IdTipoPersona': id }, true)[0].descripcion;
+                 }
 
                $scope.CleanPersona = function () {
                    $scope.isSave = true;

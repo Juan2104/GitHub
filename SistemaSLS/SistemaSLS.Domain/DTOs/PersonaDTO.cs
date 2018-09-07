@@ -10,6 +10,7 @@ namespace SistemaSLS.Domain.DTOs
         public string Dni { get; set; }
         public int IdTipoPersona { get; set; }
         public int IdEmpresa { get; set; }
+        public int IdPais { get; set; }
         public string TelefonoPersonal { get; set; }
         public string TelefonoLaboral { get; set; }
         public string EmailPersonal { get; set; }

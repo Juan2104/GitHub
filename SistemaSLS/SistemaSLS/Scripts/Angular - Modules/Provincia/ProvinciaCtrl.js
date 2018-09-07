@@ -9,6 +9,7 @@
            function ($scope, $filter, $routeParams, $location, ProvinciaService, NgTableParams) {
                $scope.initProvincia = function () {
                    $scope.getProvincia();
+                   $scope.getPaises();
                }
 
                $scope.getProvincia = function () {
@@ -22,11 +23,16 @@
                    });
                }
 
-               $scope.Paises = function ()
-               {
-                   $scope.Pais = Pais.Descripcion 
+               $scope.getPaises = function () {
+                   $scope.isLoading = true;
+                   ProvinciaService.getPaises().then(function (response) {
+                       $scope.Paises = angular.copy(response.data);
+                   }).catch(function (result) {
+                       $scope.isLoading = false;
+                   });
                }
 
+     
                $scope.CleanProvincia = function () {
                    $scope.isSave = true;
                    $scope.Provincia = {};

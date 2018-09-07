@@ -1,209 +1,104 @@
 ﻿<div ng-class="{'loading':  isLoading}"></div>
-<div ng-init="initMaster()">
-    <div class="panel panel-danger">
-        <div class="panel-heading">
-            <h3 class="panel-title">Pais</h3>
-        </div>
-        <div class="panel-body">
-            <div class="buttonOne">
-                <button class="btn btn-dark" ng-click="CleanPais();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </button>
-            </div>
-        </div>
-        <div class="table table-striped">
-            <table ng-table="PaisTable" id="PaisTable" class="table table-bordered">
-                <tbody>
-                    <tr ng-repeat="row in $data">
-                        <td data-title="'Acciones'" style="width:14%;">
-                            <button type="button" class="btn" ng-click="loadPais(row)"
-                                    data-target="#ModalCreateEditEmpresa" data-toggle="modal">
-                                <i class="fas fa-pencil-alt"></i>
-                                <span class="glyphicon glyphicon-refresh"></span>
-                            </button>
-                            <button type="button" class="btn" ng-click="loadPais(row)"
-                                    data-target="#ModalDeleteConfirm" data-toggle="modal">
-                                <i class="fas fa-trash-alt"></i>
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                        </td>
-                        <td data-title="'Descripcion'">{{row.Descripcion}}</td>
-                    </tr>
-                </tbody>
-            </table>
+
+<div class="panel panel-danger" ng-init="initPais()">
+    <div class="panel-heading">
+        <h3 class="panel-title">Pais</h3>
+    </div>
+    <div class="panel-body">
+        <div class="buttonOne">
+            <button class="btn btn-dark" ng-click="CleanPais();" data-target="#ModalCreateEditEmpresa" data-toggle="modal">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
         </div>
     </div>
 
-    <div class="panel panel-danger">
-        <div class="panel-heading">
-            <h3 class="panel-title">Provincia</h3>
-        </div>
-        <div class="panel-body">
-            <div class="buttonOne">
-                <button class="btn btn-dark" ng-click="CleanProvincia();" data-target="#ModalCreateEditProvincia" data-toggle="modal">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </button>
-            </div>
-        </div>
-        <div class="table table-striped">
-            <table ng-table="ProvinciaTable" id="ProvinciaTable" class="table table-bordered">
-                <tbody>
-                    <tr ng-repeat="row in $data">
-                        <td data-title="'Acciones'" style="width:14%;">
-                            <button type="button" class="btn" ng-click="loadProvincia(row)"
-                                    data-target="#ModalCreateEditProvincia" data-toggle="modal">
-                                <i class="fas fa-pencil-alt"></i>
-                                <span class="glyphicon glyphicon-refresh"></span>
-                            </button>
-                            <button type="button" class="btn" ng-click="loadProvincia(row)"
-                                    data-target="#ModalDeleteConfirmPro" data-toggle="modal">
-                                <i class="fas fa-trash-alt"></i>
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                        </td>
-                        <td data-title="'Descripcion'">{{row.Descripcion}}</td>
-                        <td data-title="'Pais'">{{row.IdPais}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="table table-striped">
+        <table ng-table="PaisTable" id="PaisTable" class="table table-bordered">
+            <tbody>
+                <tr ng-repeat="row in $data">
+                    <td data-title="'Acciones'" style="width:14%;">
+                        <button type="button" class="btn" ng-click="loadPais(row)"
+                                data-target="#ModalCreateEditEmpresa" data-toggle="modal">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </button>
+                        <button type="button" class="btn" ng-click="loadPais(row)"
+                                data-target="#ModalDeleteConfirm" data-toggle="modal">
+                            <i class="fas fa-trash-alt"></i>
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>
+                    <td data-title="'Descripcion'">{{row.Descripcion}}</td>              
+                </tr>
+            </tbody>
+        </table>
     </div>
-
-    <div class="modal fade" id="ModalCreateEditEmpresa" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Nuevo Pais</h4>
-                </div>
-                <div class="modal-body">
-                    <form name="PaisForm">
-                        <div class="inputLine">
-                            <label>Descripción</label>
-                            <input class="form-control" ng-model="Pais.Descripcion" required />
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button ng-show="isSave" type="button" class="btn buttonNew"
-                            ng-disabled="PaisForm.$invalid" data-dismiss="modal"
-                            ng-click="savePais()">
-                        Crear
-                    </button>
-                    <button ng-show="!isSave" type="button" data-dismiss="modal"
-                            class="btn buttonNew" ng-disabled="PaisForm.$invalid"
-                            ng-click="editPais()">
-                        Editar
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <div class="modal fade" id="ModalMessage" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Mensaje</h4>
-                </div>
-                <div class="modal-body">
-                    <p ng-class="{'success': isSuccess, 'error': !isSuccess}">{{message}}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <div class="modal fade" id="ModalDeleteConfirm" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Aviso</h4>
-                </div>
-                <div class="modal-body">
-                    <p> ¿Desea eliminar el Pais: <b>{{Pais.Descripcion}}</b>?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn buttonNew" ng-click="DeletePais()" data-dismiss="modal">Eliminar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    
-
-    <div class="modal fade" id="ModalCreateEditProvincia" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Nueva Provincia</h4>
-                </div>
-                <div class="modal-body">
-                    <form name="ProvinciaForm">
-                        <div class="inputLine">
-                            <label>Descripción</label>
-                            <input class="form-control" ng-model="Provincia.Descripcion" required />                            
-                            <label>Pais</label>
-                            <select class="form-control" ng-options="Pais.IdPais as Pais.Description for Pais in Pais"
-                                    ng-model="Pais.IdPais" required>
-                                <option value="">Seleccione un Pais</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button ng-show="isSave" type="button" class="btn buttonNew"
-                            ng-disabled="ProvinciaForm.$invalid" data-dismiss="modal"
-                            ng-click="saveProvincia()">
-                        Crear
-                    </button>
-                    <button ng-show="!isSave" type="button" data-dismiss="modal"
-                            class="btn buttonNew" ng-disabled="ProvinciaForm.$invalid"
-                            ng-click="editProvincia()">
-                        Editar
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <div class="modal fade" id="ModalMessage" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Mensaje</h4>
-                </div>
-                <div class="modal-body">
-                    <p ng-class="{'success': isSuccess, 'error': !isSuccess}">{{message}}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <div class="modal fade" id="ModalDeleteConfirmPro" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Aviso</h4>
-                </div>
-                <div class="modal-body">
-                    <p> ¿Desea eliminar la Provincia: <b>{{Provincia.Descripcion}}</b>?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn buttonNew" ng-click="DeleteProvincia()" data-dismiss="modal">Eliminar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-
 </div>
+
+<div class="modal fade" id="ModalCreateEditEmpresa" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Nuevo Pais</h4>
+            </div>
+            <div class="modal-body">
+                <form name="PaisForm">
+                    <div class="inputLine">
+                        <label>Descripción</label>
+                        <input class="form-control" ng-model="Pais.Descripcion" required />
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button ng-show="isSave" type="button" class="btn buttonNew"
+                        ng-disabled="PaisForm.$invalid" data-dismiss="modal"
+                        ng-click="savePais()">
+                    Crear
+                </button>
+                <button ng-show="!isSave" type="button" data-dismiss="modal"
+                        class="btn buttonNew" ng-disabled="PaisForm.$invalid"
+                        ng-click="editPais()">
+                    Editar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="ModalMessage" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-class="{'success': isSuccess, 'error': !isSuccess}">{{message}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="ModalDeleteConfirm" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Aviso</h4>
+            </div>
+            <div class="modal-body">
+                <p> ¿Desea eliminar el Pais: <b>{{Pais.Descripcion}}</b>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn buttonNew" ng-click="DeletePais()" data-dismiss="modal">Eliminar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

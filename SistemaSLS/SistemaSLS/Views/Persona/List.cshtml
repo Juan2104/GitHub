@@ -2,7 +2,7 @@
 
 <div class="panel panel-danger" ng-init="initPersona()">
     <div class="panel-heading">
-        <h3 class="panel-title">Personas</h3>
+        <h3 class="panel-title">Alumnos</h3>
     </div>
     <div class="panel-body">
         <div class="buttonOne">
@@ -13,7 +13,7 @@
     </div>
 
     <div class="table table-striped">
-        <table ng-table="PersonaTable" id="PersonaTable" class="table table-bordered">
+        <table ng-table="PersonaTable" class="table table-condensed table-bordered">
             <tbody>
                 <tr ng-repeat="row in $data">
                     <td data-title="'Acciones'" style="width:14%;">
@@ -31,6 +31,9 @@
                     <td data-title="'Nombre'">{{row.Nombre}}</td>
                     <td data-title="'Apellido'">{{row.Apellido}}</td>
                     <td data-title="'DNI'">{{row.Dni}}</td>
+                    <td data-title="'Tipo Persona'">{{getTipoPersona(row.IdTipoPersona)}}</td>
+                    <td data-title="'Empresa'">{{row.IdEmpresa}}</td>
+                    <td data-title="'Pais'">{{getPais(row.IdPais)}}</td>
                     <td data-title="'Telefono Personal'">{{row.TelefonoPersonal}}</td>
                     <td data-title="'Telefono Laboral'">{{row.TelefonoLaboral}}</td>
                     <td data-title="'Email Personal'">{{row.EmailPersonal}}</td>
@@ -48,7 +51,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Nuevo Tipo Persona</h4>
+                <h4 class="modal-title">Nueva Alumno</h4>
             </div>
             <div class="modal-body">
                 <form name="PersonaForm">
@@ -60,9 +63,15 @@
                         <label>Dni</label>
                         <input class="form-control" ng-model="Persona.Dni" />
                         <label>Tipo Persona</label>
-                        <input class="form-control" ng-model="Persona.IdTipoPersona" />
+                        <select class="form-control" ng-options="TipoPersona.IdTipoPersona as TipoPersona.descripcion for TipoPersona in TiposPersonas" ng-model="Persona.IdTipoPersona">
+                            <option value="">Seleccione un tipo de persona</option>
+                        </select>
                         <label>Empresa</label>
                         <input class="form-control" ng-model="Persona.IdEmpresa" />
+                        <label>Pais</label>                        
+                        <select class="form-control" ng-options="Pais.IdPais as Pais.Descripcion for Pais in Paises" ng-model="Persona.IdPais">
+                            <option value="">Seleccione un Pais</option>                            
+                        </select>
                         <label>Telefono Personal</label>
                         <input class="form-control" ng-model="Persona.TelefonoPersonal" />
                         <label>Telefono Laboral</label>
@@ -123,7 +132,7 @@
                 <h4 class="modal-title">Aviso</h4>
             </div>
             <div class="modal-body">
-                <p> ¿Desea eliminar el tipo de Persona: <b>{{Persona.Nombre}}</b>?</p>
+                <p> ¿Desea eliminar el Alumno: <b>{{Persona.Nombre}}</b>?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

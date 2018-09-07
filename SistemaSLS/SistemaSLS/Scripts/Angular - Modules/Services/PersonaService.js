@@ -9,6 +9,18 @@
                         url: '/Persona/Get'
                     });
                 },
+                getPaises: function () {
+                    return $http({
+                        method: 'GET',
+                        url: '/Pais/Get'
+                    });
+                },
+                getTiposPersonas: function () {
+                    return $http({
+                        method: 'GET',
+                        url: '/TipoPersona/Get'
+                    });
+                },
                 savePersona: function (PersonaDTO) {
                     return $http({
                         method: 'POST',

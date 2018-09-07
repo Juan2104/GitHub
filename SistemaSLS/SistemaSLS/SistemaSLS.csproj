@@ -144,7 +144,6 @@
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\ProvinciaController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
-    <Compile Include="Controllers\TipoDictadoController.cs" />
     <Compile Include="Controllers\TipoMonedaController.cs" />
     <Compile Include="Controllers\TipoPersonaController.cs" />
     <Compile Include="Controllers\TipoServicioController.cs" />
@@ -3470,14 +3469,11 @@
     <Content Include="Scripts\Angular - Modules\Services\PersonaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\ProvinciaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\ServicioService.js" />
-    <Content Include="Scripts\Angular - Modules\Services\TipoDictadoService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoMonedaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoPersonaService.js" />
     <Content Include="Scripts\Angular - Modules\Services\TipoServicioService.js" />
     <Content Include="Scripts\Angular - Modules\Servicio\ServicioCtrl.js" />
     <Content Include="Scripts\Angular - Modules\Servicio\ServicioModule.js" />
-    <Content Include="Scripts\Angular - Modules\TipoDictado\TipoDictadoCtrl.js" />
-    <Content Include="Scripts\Angular - Modules\TipoDictado\TipoDictadoModule.js" />
     <Content Include="Scripts\Angular - Modules\TipoMoneda\TipoMonedaCtrl.js" />
     <Content Include="Scripts\Angular - Modules\TipoMoneda\TipoMonedaModule.js" />
     <Content Include="Scripts\Angular - Modules\TipoPersona\TipoPersonaCtrl.js" />
@@ -3711,9 +3707,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -3755,9 +3749,6 @@
     <Content Include="Views\Agenda\Bundle.cshtml" />
     <Content Include="Views\Agenda\Index.cshtml" />
     <Content Include="Views\Agenda\List.cshtml" />
-    <Content Include="Views\TipoDictado\Bundle.cshtml" />
-    <Content Include="Views\TipoDictado\Index.cshtml" />
-    <Content Include="Views\TipoDictado\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

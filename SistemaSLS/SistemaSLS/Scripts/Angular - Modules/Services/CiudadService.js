@@ -9,6 +9,12 @@
                         url: '/Ciudad/Get'
                     });
                 },
+                getProvincia: function () {
+                    return $http({
+                        method: 'GET',
+                        url: '/Provincia/Get'
+                    });
+                },
                 saveCiudad: function (CiudadDTO) {
                     return $http({
                         method: 'POST',

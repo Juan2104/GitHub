@@ -9,6 +9,7 @@
            function ($scope, $filter, $routeParams, $location, ServicioService, NgTableParams) {
                $scope.initServicio = function () {
                    $scope.getServicio();
+                   $scope.getTiposServicios();
                }
 
                $scope.getServicio = function () {
@@ -21,7 +22,17 @@
                        $scope.isLoading = false;
                    });
                }
-
+               $scope.getTiposServicios = function () {
+                   $scope.isLoading = true;
+                   ServicioService.getTiposServicios().then(function (response) {
+                       $scope.TiposServicios = angular.copy(response.data);
+                   }).catch(function (result) {
+                       $scope.isLoading = false;
+                   });
+               }
+               $scope.getTipoServicio = function (id) {
+                   return $filter('filter')($scope.TiposServicios, { 'IdTipoServicio': id }, true)[0].Nombre;
+               }
                $scope.CleanServicio = function () {
                    $scope.isSave = true;
                    $scope.Servicio = {};

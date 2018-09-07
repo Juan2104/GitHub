@@ -69,7 +69,6 @@
     <Compile Include="Repositories\PersonaBaseRepository.cs" />
     <Compile Include="Repositories\ProvinciaRepository.cs" />
     <Compile Include="Repositories\ServicioBaseRepository.cs" />
-    <Compile Include="Repositories\TipoDictadoRepository.cs" />
     <Compile Include="Repositories\TipoMonedaRepository.cs" />
     <Compile Include="Repositories\TipoPersonaRepository.cs" />
     <Compile Include="Repositories\AgendaBaseRepository.cs" />

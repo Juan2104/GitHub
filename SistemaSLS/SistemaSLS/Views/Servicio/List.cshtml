@@ -29,7 +29,7 @@
                         </button>
                     </td>
                     <td data-title="'Nombre'">{{row.Nombre}}</td>
-                    <td data-title="'Tipo Servicio'">{{row.IdServicio}}</td>
+                    <td data-title="'Tipo Servicio'">{{getTipoServicio(row.IdTipoServicio)}}</td>
                 </tr>
             </tbody>
         </table>
@@ -49,7 +49,9 @@
                         <label>Nombre</label>
                         <input class="form-control" ng-model="Servicio.Nombre" required />
                         <label>Tipo Servicio</label>
-                        <input class="form-control" ng-model="Servicio.IdServicio" />
+                        <select class="form-control" ng-options="TipoServicio.IdTipoServicio as TipoServicio.Descripcion for TipoServicio in TiposServicios" ng-model="Persona.IdTipoPersona">
+                            <option value="">Seleccione un tipo de servicio</option>
+                        </select>
                     </div>
 
                 </form>

@@ -14,15 +14,14 @@ namespace SistemaSLS.Data.Context
         public virtual DbSet<TipoPersona> TipoPersona { get; set; }
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
         public virtual DbSet<TipoServicio> TipoServicio { get; set; }
-
-        public virtual DbSet<TipoDictado> TipoDictado { get; set; }
         public virtual DbSet<Servicio> Servicio { get; set; }
 
         public virtual DbSet<Persona> Persona { get; set; }
         public virtual DbSet<Pais> Pais { get; set; }
         public virtual DbSet<Provincia> Provincia { get; set; }
         public virtual DbSet<Ciudad> Ciudad { get; set; }
-        public virtual DbSet<Agenda> Agenda { get; set; }
+        public virtual DbSet<Agenda> Agenda { get; set; } 
+        public virtual DbSet<TipoDictado> TipoDictado { get; set; }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{

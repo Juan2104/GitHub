@@ -9,6 +9,7 @@
            function ($scope, $filter, $routeParams, $location, CiudadService, NgTableParams) {
                $scope.initCiudad = function () {
                    $scope.getCiudad();
+                   $scope.getProvincia();
                }
 
                $scope.getCiudad = function () {
@@ -22,6 +23,14 @@
                    });
                }
 
+               $scope.getProvincia = function () {
+                   $scope.isLoading = true;
+                   CiudadService.getProvincia().then(function (response) {
+                       $scope.Provincias = angular.copy(response.data);
+                   }).catch(function (result) {
+                       $scope.isLoading = false;
+                   });
+               }
                $scope.CleanCiudad = function () {
                    $scope.isSave = true;
                    $scope.Ciudad = {};

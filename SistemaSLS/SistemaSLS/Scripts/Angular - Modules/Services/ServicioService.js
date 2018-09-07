@@ -9,6 +9,12 @@
                         url: '/Servicio/Get'
                     });
                 },
+                getTiposServicios: function () {
+                    return $http({
+                        method: 'GET',
+                        url: '/TipoServicio/Get'
+                    });
+                },
                 saveServicio: function (ServicioDTO) {
                     return $http({
                         method: 'POST',
