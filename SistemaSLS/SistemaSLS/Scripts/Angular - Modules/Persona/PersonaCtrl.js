@@ -11,6 +11,7 @@
                    $scope.getPersona();
                    $scope.getPaises();
                    $scope.getTiposPersonas();
+                   $scope.getEmpresas();
                }
 
                $scope.getPersona = function () {
@@ -47,7 +48,17 @@
                  $scope.getTipoPersona = function (id) {
                      return $filter('filter')($scope.TiposPersonas, { 'IdTipoPersona': id }, true)[0].descripcion;
                  }
-
+                 $scope.getEmpresas = function () {
+                     $scope.isLoading = true;
+                     PersonaService.getEmpresas().then(function (response) {
+                         $scope.Empresas = angular.copy(response.data);
+                     }).catch(function (result) {
+                         $scope.isLoading = false;
+                     });
+                 }
+                 $scope.getEmpresa = function (id) {
+                     return $filter('filter')($scope.Empresas, { 'IdEmpresa': id }, true)[0].Descripcion;
+                 }
                $scope.CleanPersona = function () {
                    $scope.isSave = true;
                    $scope.Persona = {};

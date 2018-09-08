@@ -22,6 +22,7 @@ namespace SistemaSLS.Data.Context
         public virtual DbSet<Ciudad> Ciudad { get; set; }
         public virtual DbSet<Agenda> Agenda { get; set; } 
         public virtual DbSet<TipoDictado> TipoDictado { get; set; }
+        public virtual DbSet<Empresa> Empresa { get; set; }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{

@@ -21,6 +21,7 @@ namespace SistemaSLS.Utils
           cfg.CreateMap<Provincia, ProvinciaDTO>().ReverseMap();
           cfg.CreateMap<Ciudad, CiudadDTO>().ReverseMap();
           cfg.CreateMap<Agenda, AgendaDTO>().ReverseMap();
+          cfg.CreateMap<Empresa, EmpresaDTO>().ReverseMap();
           });
         }
     }

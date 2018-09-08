@@ -15,6 +15,12 @@
                         url: '/Pais/Get'
                     });
                 },
+                getEmpresas: function () {
+                    return $http({
+                        method: 'GET',
+                        url: '/Empresa/Get'
+                    });
+                },
                 getTiposPersonas: function () {
                     return $http({
                         method: 'GET',

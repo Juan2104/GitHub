@@ -28,18 +28,18 @@
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </td>
-                    <td data-title="'Nombre'">{{row.Nombre}}</td>
-                    <td data-title="'Apellido'">{{row.Apellido}}</td>
+                    <td data-title="'Nombre'"filter="{ Nombre: 'text'}">{{row.Nombre}}</td>
+                    <td data-title="'Apellido'"filter="{ Apellido: 'text'}">{{row.Apellido}}</td>
                     <td data-title="'DNI'">{{row.Dni}}</td>
                     <td data-title="'Tipo Persona'">{{getTipoPersona(row.IdTipoPersona)}}</td>
-                    <td data-title="'Empresa'">{{row.IdEmpresa}}</td>
+                    <td data-title="'Empresa'">{{getEmpresa(row.IdEmpresa)}}</td>
                     <td data-title="'Pais'">{{getPais(row.IdPais)}}</td>
                     <td data-title="'Telefono Personal'">{{row.TelefonoPersonal}}</td>
                     <td data-title="'Telefono Laboral'">{{row.TelefonoLaboral}}</td>
                     <td data-title="'Email Personal'">{{row.EmailPersonal}}</td>
                     <td data-title="'Eliminado'">{{row.Eliminado}}</td>
                     <td data-title="'Movil'">{{row.Movil}}</td>
-                    <td data-title="'Supervisor'">{{row.Supervisor}}</td>
+                    <td data-title="'Supervisor'"filter="{ Supervisor: 'text'}">{{row.Supervisor}}</td>
                 </tr>
             </tbody>
         </table>
@@ -67,7 +67,9 @@
                             <option value="">Seleccione un tipo de persona</option>
                         </select>
                         <label>Empresa</label>
-                        <input class="form-control" ng-model="Persona.IdEmpresa" />
+                        <select class="form-control" ng-options="Empresa.IdEmpresa as Empresa.Descripcion for Empresa in Empresas" ng-model="Persona.IdEmpresa">
+                            <option value="">Seleccione una empresa</option>
+                        </select>
                         <label>Pais</label>                        
                         <select class="form-control" ng-options="Pais.IdPais as Pais.Descripcion for Pais in Paises" ng-model="Persona.IdPais">
                             <option value="">Seleccione un Pais</option>                            

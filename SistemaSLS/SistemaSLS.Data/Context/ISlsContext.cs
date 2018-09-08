@@ -19,6 +19,8 @@ namespace SistemaSLS.Data.Context
         DbSet<Ciudad> Ciudad { get; set; }
         DbSet<Agenda> Agenda { get; set; }
         DbSet<TipoDictado> TipoDictado { get; set; }
+        DbSet<Empresa> Empresa { get; set; }
+
 
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
 
