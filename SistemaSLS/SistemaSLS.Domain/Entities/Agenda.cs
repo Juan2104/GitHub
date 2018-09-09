@@ -38,7 +38,7 @@ namespace SistemaSLS.Domain.Entities
         public virtual ICollection<TipoDictado> Dictado { get; set; }
         public string Dias { get; set; }
         public int IdEstado { get; set; }
-        public virtual Ciudad Ciudad { get; set; }
+        public virtual Estado Estado { get; set; }
     }
 
 }
